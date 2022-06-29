@@ -1,0 +1,617 @@
+:root {
+    color-scheme: dark;
+}
+
+@font-face {
+    font-family: "Retroica";
+    src: url("retroica.ttf");
+    font-family: 'Berlin Sans';
+    src: url("berlin_sans.ttf");
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+body {
+    margin: 0;
+}
+
+#header {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    top: 0;
+    padding: 2% 0 0;
+    z-index: 998;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("image/burlamacca_sul_pennone.jpg") no-repeat right;
+    background-size: cover;
+    position: fixed;
+    transition: 0.5s;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+#titolo {
+    margin: 0;
+    padding: 1% 0 0;
+    font-family: "Retroica";
+    font-size: 1.1em;
+    text-align: center;
+    transition: 1s;
+}
+
+#titolo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.rosso {
+    color: red;
+    transition: ease-in-out 0.2s;
+}
+
+#header #gif {
+    width: 5%;
+    margin: 0 2% 0 0;
+    float: left;
+    opacity: 0.9;
+    transition: 0.8s;
+    display: none;
+}
+
+#header #gif:hover {
+    width: 5.5%;
+}
+
+ul#menu {
+    font-family: "Retroica";
+    margin: 1.5% 0;
+    padding: 0% 6%;
+    list-style: none;
+    overflow: hidden;
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+ul#menu li {
+    padding: 0.5% 0;
+}
+
+ul#menu li:first-child {
+    display: none;
+}
+
+ul#menu li:active {
+    text-decoration: underline;
+}
+
+ul#menu li a {
+    padding: 1.7%;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+    display: block;
+    border-bottom: 3px solid white;
+    text-decoration: none;
+    transition: .5s ease-out;
+}
+
+ul#menu li a:hover {
+    background-color: #000;
+    border-bottom: 4px solid red;
+}
+
+ul#menu li a:hover>.aumenta {
+    color: red;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+#menu-icon {
+    margin: -1.1% 2% 0 0;
+    padding: 13px 5px;
+    cursor: pointer;
+    user-select: none;
+    float: right;
+    position: relative;
+    display: block;
+}
+
+#menu-icon #nav-icon {
+    height: 2px;
+    width: 20px;
+    background: #fff;
+    display: block;
+    position: relative;
+    transition: 0.2s ease-out;
+}
+
+#menu-icon:hover {
+    background-color: rgba(255, 0, 4, 0.6);
+    border-radius: 200px;
+    transition: 0.2s;
+}
+
+#menu-icon #nav-icon:before,
+#menu-icon #nav-icon:after {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    content: "";
+    display: block;
+    position: absolute;
+    transition: all 0.2s ease-out;
+}
+
+#menu-icon #nav-icon:before {
+    top: 6px;
+}
+
+#menu-icon #nav-icon:after {
+    top: -6px;
+}
+
+#menu-btn {
+    display: none;
+}
+
+#menu-btn:checked~ul#menu {
+    max-height: 250px;
+}
+
+#menu-btn:checked~#menu-icon #nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+#menu-btn:checked~#menu-icon #nav-icon {
+    background: transparent;
+}
+
+#menu-btn:checked~#menu-icon #nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.casellaCerca {
+    margin-top: 0.5%;
+    margin-right: 6%;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 1px;
+    height: 30px;
+    border-radius: 40px;
+    transition: ease-in-out .4s;
+    float: right;
+}
+
+#cercaHeader {
+    display: none;
+}
+
+#cercaSidenav {
+    margin-right: 10%;
+    width: 186px;
+    height: 35px;
+}
+
+#cercaSidenav:hover {
+    background-color: rgba(255, 255, 255, .75);
+    padding: 4px;
+}
+
+.testoCerca {
+    color: rgba(105, 105, 105, .3);
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    font-size: 16px;
+    transition: ease-in-out .4s;
+}
+
+.testoCerca:active {
+    border: solid rgba(105, 105, 105, .7) 1px;
+    border-radius: 30px;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(66, 66, 66, 1.00);
+    opacity: .5;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(66, 66, 66, 1.00);
+    opacity: .5;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(66, 66, 66, 1.00);
+    opacity: .5;
+}
+
+#headerTestoCerca {
+    width: 0px;
+    font-family: "Retroica";
+    color: transparent
+}
+
+#sideTestoCerca {
+    font-family: "Retroica";
+    width: 120px;
+    height: 25px;
+    padding: 2px;
+    margin: 5px 0 0 5px;
+    cursor: pointer;
+}
+
+#cercaSidenav:hover>#sideTestoCerca {
+    margin-top: 3px;
+    width: 135px;
+    height: 30px;
+    margin-right: 15px;
+    margin-left: 2px;
+    padding: 0 6px;
+    background: #fff;
+    color: rgba(0, 0, 0, .7);
+}
+
+select option:first-child {
+    display: none;
+}
+
+select option {
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+
+select:hover option {
+    color: #000;
+    background-color: rgba(213, 0, 3, 1.00);
+}
+
+.cercaBtn {
+    margin-right: 1px;
+    float: right;
+    width: 29px;
+    height: 29px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 50%;
+    display: flex;
+    transition: 0.4s;
+    cursor: pointer;
+    border: none;
+}
+
+#sideCercaBtn {
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.casellaCerca:hover .cercaBtn {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.cercaBtn:active {
+    border: solid 1px rgba(105, 105, 105, .7);
+    border-radius: 50%;
+}
+
+.cercaBtn>img {
+    width: 19px;
+    margin-left: 4px;
+}
+
+#sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("image/sidenav.jpg") no-repeat left;
+    background-size: cover;
+    opacity: 1;
+    box-shadow: -4px 0px 18px -1px rgba(0, 0, 0, 0.75);
+    overflow-x: hidden;
+    transition: 0.5s;
+    border-bottom-left-radius: 50px;
+}
+
+#sidenav p {
+    font-family: "Retroica";
+    color: #fff;
+    margin: 10% auto;
+    text-align: center;
+    transition: ease-out .6s;
+    font-size: 1.3em;
+}
+
+#sidenav #menu-closeBtn {
+    display: none;
+}
+
+#sidenav #closeBtn-icon {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 3px;
+    padding: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#sidenav #closeBtn-icon:hover {
+    background-color: rgba(255, 0, 4, 0.6);
+    border-radius: 200px;
+    transition: 0.2s;
+}
+
+#sidenav #closeBtn-icon #close-icon:before,
+#sidenav #closeBtn-icon #close-icon:after {
+    display: block;
+    position: absolute;
+    top: 13.5px;
+    right: 5px;
+    height: 2px;
+    width: 20px;
+    background: #fff;
+    content: "";
+    transition: all 0.2s ease-out;
+}
+
+#sidenav #closeBtn-icon #close-icon:before {
+    transform: rotate(-45deg);
+}
+
+#closeBtn-icon #close-icon {
+    background: transparent;
+}
+
+#sidenav #closeBtn-icon #close-icon:after {
+    transform: rotate(45deg);
+}
+
+#risultato p {
+    color: #fff;
+    text-align: left;
+    line-height: 1.3;
+    margin: 35% 14%;
+    font-size: 1em;
+}
+
+.GoDown {
+    z-index: 2;
+    user-select: none
+}
+
+.GoDown:hover,
+.SlideButtons:hover:not(#startStop) {
+    filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+}
+
+main h1 {
+    font-family: "Retroica";
+    font-size: 1.5em;
+}
+
+main h1,
+.date2021,
+#testoRioni h1 {
+    font-family: "Retroica";
+    background-color: white;
+    color: #000;
+    margin: 0 auto;
+    padding: 1%;
+    border-bottom-right-radius: 40px;
+    width: 60%;
+    text-align: center;
+    mix-blend-mode: screen;
+    transition: .2s;
+    z-index: 997;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+main h1:hover,
+.date2021:hover,
+#testoRioni h1:hover {
+    border-radius: 0;
+}
+
+.date2021 h1:hover>.aumenta,
+.date2021 h3:hover>.aumenta,
+main h1:hover>.aumenta,
+#testoRioni h1:hover>.aumenta {
+    color: red;
+    transition: .5s;
+    font-size: 1.1em;
+}
+
+footer {
+    margin: 0;
+    padding: 0.2%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("image/burlamacca_sul_pennone.jpg") no-repeat right;
+    background-size: cover;
+    opacity: 0.95;
+    box-shadow: 0px -2px 30px 0px rgba(0, 0, 0, 0.75);
+    clear: both;
+}
+
+footer:hover {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .6)), url("image/burlamacca_sul_pennone.jpg") no-repeat right;
+    background-size: cover;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer p {
+    font-family: "Retroica";
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    font-size: 0.65em
+}
+
+footer p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#buttonTop {
+    display: none;
+    position: fixed;
+    width: 50px;
+    cursor: pointer;
+    top: 88%;
+    right: 2%;
+    z-index: 1000;
+}
+
+#buttonTop:hover {
+    filter: invert(100%);
+}
+
+@media screen and (min-width:360px) {
+    #titolo {
+        font-size: 1.4em;
+    }
+    #cercaHeader {
+        display: none;
+    }
+    #menu-icon {
+        margin: 0.3% 2% 0 0;
+    }
+    footer p {
+        font-size: 0.75em
+    }
+}
+
+@media screen and (min-width:480px) {
+    #titolo {
+        font-size: 1.7em;
+    }
+    #menu-icon {
+        margin: 0% 2% 0 0;
+    }
+}
+
+@media screen and (min-width:625px) {
+    #titolo {
+        font-size: 2.3em;
+    }
+    ul#menu li a {
+        font-size: 1em
+    }
+    #menu-icon {
+        margin: 1.3% 2% 0 0;
+    }
+    footer p {
+        font-size: 0.9em
+    }
+}
+
+@media screen and (min-width:800px) {
+    #header {
+        padding: 2%
+    }
+    #titolo {
+        font-size: 3em;
+        text-align: left;
+        padding: 0;
+    }
+    ul#menu {
+        margin: 0;
+        padding: 0% 3%;
+        max-height: none;
+    }
+    ul#menu li:not(:first-child) {
+        margin: 2px;
+        padding: 0;
+        float: left;
+        display: block;
+    }
+    ul#menu li a {
+        padding: 10px 16px;
+        display: block;
+    }
+    #menu-icon {
+        display: none;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #titolo {
+        font-size: 5em;
+    }
+    ul#menu li:first-child {
+        margin: 2px;
+        padding: 0;
+        float: left;
+        display: block;
+    }
+    ul#menu li a {
+        font-size: 1.1em;
+    }
+    #header #gif {
+        width: 4%
+    }
+    #header #gif:hover {
+        width: 4.1%
+    }
+    .casellaCerca {
+        width: 150px;
+        background-color: rgba(255, 255, 255, .7);
+    }
+    .casellaCerca:hover {
+        padding: 4px;
+        background-color: rgba(255, 255, 255, .75);
+    }
+    #headerTestoCerca {
+        background-color: transparent;
+        width: 100px;
+        padding: 2px;
+        margin: 5.5px 0 0 6px
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-moz-selection {
+    /* per Firefox */
+    color: white;
+    background: red;
+}
+
+::selection {
+    color: white;
+    background: red;
+}

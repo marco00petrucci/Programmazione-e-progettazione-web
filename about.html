@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("image/galli.jpg") no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 90%;
+        }
+        
+        main {
+            margin-top: 13%;
+        }
+        
+        main h2 {
+            font-family: 'Retroica';
+            text-align: center;
+            color: #fff;
+        }
+        
+        main p,
+        main a {
+            font-family: 'Berlin Sans';
+            text-align: center;
+            color: #fff;
+        }
+        
+        .About {
+            margin: 2% 5%;
+        }
+        
+        .About h2 {
+            margin: 0;
+            padding: 10% 15% 1%;
+        }
+        
+        .About p {
+            margin: 0;
+            padding: 2% 10% 10%;
+            font-size: 1em;
+            line-height: 1.3;
+        }
+        
+        .About a {
+            text-decoration: none;
+        }
+        
+        #aboutMe {
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 100px;
+        }
+        
+        #contatti {
+            background-color: rgba(190, 0, 0, 0.5);
+            width: 90%;
+            border-radius: 300px;
+            text-align: center;
+            position: relative;
+        }
+        
+        #contatti h2 {
+            margin-top: 15%
+        }
+        
+        #contatti p {
+            margin-top: 5%;
+            font-size: 0.8em;
+        }
+        
+        #contatti a:hover {
+            text-decoration: underline;
+        }
+        
+        #sito {
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 100px;
+        }
+        
+        .icons {
+            width: 10%;
+            vertical-align: middle;
+            padding: 0% 1%;
+        }
+        
+        @media screen and (min-width:500px) {
+            .icons {
+                width: 5%;
+            }
+        }
+        
+        @media screen and (min-width:800px) {
+            body {
+                background-position: 50% 55%
+            }
+            #aboutMe {
+                float: left;
+                width: 40%;
+            }
+            #sito {
+                float: right;
+                width: 40%;
+            }
+            #contatti {
+                float: left;
+                width: 310px;
+                height: 310px;
+                margin-top: -5%;
+                margin-left: 39%
+            }
+            #contatti p {
+                font-size: 0.9em;
+            }
+            .icons {
+                width: 10%;
+            }
+        }
+    </style>
+    <link rel="icon" href="image/logo.ico" />
+    <script src="header-opensidenav.js"></script>
+    <script src="cerca-top.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <input type="checkbox" id="menu-btn">
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn">
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <main>
+        <div class="About" id="aboutMe">
+            <h2><span class="rosso">A</span>BOUT <span class="rosso">M</span>E</h2>
+            <p>Mi chiamo Marco Petrucci, ho 21 anni e abito a Viareggio.<br> Fin da bambino il Carnevale viareggino è la mia passione e, unendo questa mia passione e quella per l'informatica e la grafica, è nato questo sito, realizzato per il corso di Programmazione
+                e Progettazione Web per l'anno accademico 2021/22.</p>
+        </div>
+
+        <div class="About" id="sito">
+            <h2>IL <span class="rosso">S</span>ITO</h2>
+            <p>Questo sito è stato realizzato per il corso di Programmazione e Progettazione Web (CdL di Informatica Umanistica dell'Università degli Studi di Pisa) a.a. 2020/21.<br> Il materiale utilizzato appartiene ai proprietari. Le illustrazioni sono
+                state realizzate con Adobe Photoshop© e Adobe Illustrator©.<br /> Tutte le pagine HTML e CSS del sito sono state validate secondo gli standard W3C.</p>
+        </div>
+
+        <div class="About" id="contatti">
+            <h2><span class="rosso">C</span>ONTATTI</h2>
+            <p>
+                <a href="mailto:marco00petrucci@gmail.com" target="_blank">
+                    <img src="image/gmail_icon.gif" class="icons" alt="Icona Instagram"> marco00petrucci@gmail.com
+                </a> <br /><br />
+                <a href="https://www.instagram.com/_marco00petrucci_/" target="_blank">
+                    <img src="image/instagram_icon.gif" class="icons" alt="Icona Instagram"> _marco00petrucci_
+                </a> <br /><br />
+                <a href="https://www.facebook.com/marco00petrucci/" target="_blank">
+                    <img src="image/facebook_icon.gif" class="icons" alt="Icona Facebook"> Marco Petrucci
+                </a>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+</body>
+
+</html>

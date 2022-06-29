@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La musica - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+        html {
+            background: linear-gradient(rgba(100, 100, 100, .5) 0%, rgba(0, 0, 0, .7) 100%), url("image/festival_di_burlamacco_2019.jpg") no-repeat top;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        main {
+            margin-top: 15%;
+            z-index: 2;
+        }
+        
+        .sezioni:first-of-type {
+            margin: 5%
+        }
+        
+        .sezioni {
+            margin: 5%;
+        }
+        
+        br {
+            display: none
+        }
+        
+        iframe,
+        .burlamaccaLeft,
+        .burlamaccaRight {
+            width: 150px;
+            height: 100px;
+            float: right;
+            border: 5px solid rgba(255, 255, 255, .5);
+            animation: 1s ease-out 0s slideInFromLeft;
+        }
+        
+        iframe:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease;
+        }
+        
+        .iframeRight {
+            border-bottom-left-radius: 40px;
+        }
+        
+        .iframeRight:hover {
+            border-bottom-left-radius: 0;
+        }
+        
+        .iframeLeft {
+            border-bottom-right-radius: 40px;
+        }
+        
+        .iframeLeft:hover {
+            border-bottom-right-radius: 0;
+        }
+        
+        #maschereide {
+            margin-top: 20%;
+        }
+        
+        #primavera {
+            margin-top: 20%;
+        }
+        
+        #rinasci {
+            margin-top: 30%;
+        }
+        
+        #egisto {
+            margin-top: 30%;
+        }
+        
+        #chicca {
+            margin-top: 30%;
+        }
+        
+        main h2 {
+            font-family: "Retroica";
+            text-align: center;
+            border: 5px solid red;
+            color: #fff;
+            padding: 1%;
+            transition: .2s;
+        }
+        
+        h2.right,
+        h2.left {
+            width: 120px;
+        }
+        
+        main h2.right:hover {
+            padding: 2%;
+            background-color: #000;
+            -ms-transform: rotate(10deg);
+            /* IE 9 */
+            transform: rotate(10deg);
+            border-radius: 50px;
+        }
+        
+        main h2.left:hover {
+            padding: 2%;
+            background-color: #000;
+            -ms-transform: rotate(-10deg);
+            /* IE 9 */
+            transform: rotate(-10deg);
+            border-radius: 50px;
+        }
+        
+        main h3 {
+            font-family: "Retroica";
+            color: #fff;
+            font-size: 1em
+        }
+        
+        mark {
+            background: rgba(0, 0, 0, .3);
+            color: #fff
+        }
+        
+        main p {
+            font-family: 'Berlin Sans';
+            font-size: 0.9em;
+        }
+        
+        main a {
+            color: #fff
+        }
+        
+        main a:hover {
+            background: rgba(213, 0, 3, 1.00)
+        }
+        
+        @media screen and (min-width:625px) {
+            main h1 {
+                font-size: 1.9em;
+            }
+            #maschereide {
+                margin-top: 10%
+            }
+            #primavera {
+                margin-top: 10%
+            }
+            #rinasci {
+                margin-top: 10%
+            }
+            #egisto {
+                margin-top: 10%
+            }
+            #chicca {
+                margin-top: 10%
+            }
+        }
+        
+        @media screen and (min-width:800px) {
+            html {
+                background: linear-gradient(rgba(100, 100, 100, .4) 0%, rgba(0, 0, 0, .4) 100%), url("image/festival_di_burlamacco_2019.jpg") no-repeat;
+                background-position: 0% 55%;
+                background-size: cover;
+                background-attachment: fixed;
+                height: 100%;
+            }
+            body {
+                background-image: url("image/timeline2.png");
+                background-repeat: no-repeat;
+                background-position: 50% 30%;
+            }
+            .sezioni:first-of-type {
+                margin: 8% 0 0;
+            }
+            .sezioni {
+                margin: 8% 0 1%;
+            }
+            main h1 {
+                font-size: 2.1em;
+            }
+            .iframeRight,
+            .burlamaccaRight {
+                float: left;
+                width: 260px;
+                height: 150px;
+                margin: 0 0 0 8%;
+            }
+            .iframeLeft,
+            .burlamaccaLeft {
+                float: right;
+                width: 260px;
+                height: 150px;
+                margin: 5% 8% 0 0;
+            }
+            .right {
+                margin: 0 2% 1% 60%;
+            }
+            .left {
+                margin: 0 60% 1% 5%;
+            }
+            main p {
+                font-size: 1em;
+                line-height: 1.5;
+                line-height: 1.3;
+            }
+            br {
+                display: initial
+            }
+        }
+        
+        @media screen and (min-width:915px) {
+            body {
+                background-position: 50% 25%;
+            }
+            main h3 {
+                font-size: 1.4em
+            }
+        }
+        
+        @media screen and (min-width:1000px) {
+            body {
+                background-position: 50% 30%;
+            }
+            .sezioni {
+                margin: 15% 0 5%;
+            }
+            main h1 {
+                font-size: 4.3em;
+            }
+            .iframeRight,
+            .burlamaccaRight {
+                width: 360px;
+                height: 250px;
+                margin: 0 0 0 8%;
+            }
+            .iframeLeft,
+            .burlamaccaLeft {
+                width: 360px;
+                height: 250px;
+                margin: 5% 8% 0 0;
+            }
+            #maschereide {
+                margin-top: 0
+            }
+            #primavera {
+                margin-top: 0
+            }
+            #rinasci {
+                margin-top: 0
+            }
+            #egisto {
+                margin-top: 0
+            }
+            #chicca {
+                margin-top: 0
+            }
+        }
+    </style>
+    <link rel="icon" href="image/logo.ico" />
+    <script src="header-opensidenav.js"></script>
+    <script src="cerca-top.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <input type="checkbox" id="menu-btn">
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn">
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <main>
+        <h1 id="tit">LA <span class="aumenta"><span class="rosso">M</span>USICA<br></span><span class="rosso">V</span>IAREGGINA</h1><br>
+
+        <div class="sezioni">
+            <iframe src="https://www.youtube.com/embed/NUvlXZ0oZlA" id="maschereide" class="iframeLeft" allowfullscreen></iframe>
+
+            <h2 class="left">ANNI '20</h2> <br />
+            <h3 class="left">LE <span class="rosso">R</span>ADICI <span class="rosso">M</span>USICALI</h3>
+            <p class="left">
+                <mark>La storia musicale viareggina affonda le proprie radici nei primi anni '20, quando le poesie dedicate alla città del Carnevale degli illustrissimi maestri quali <a href="https://it.wikipedia.org/wiki/Egisto_Malfatti" target="_blank">Egisto Malfatti</a> e Lelio Maffei furono messe in musica.<br /> Quest'ultimo è autore di "Maschereide", nella quale la maschera viene descritta come il mezzo per abbandonare sé stessi ed essere come la stessa canzone cita: "il volto sincero dell'umanità".</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <iframe src="https://www.youtube.com/embed/7XK2CeBOkYQ" id="primavera" class="iframeRight" allowfullscreen></iframe>
+
+            <h2 class="right">ANNI '30</h2> <br />
+            <h3 class="right">LA "<span class="rosso">P</span>RIMAVERA" <span class="rosso">V</span>IAREGGINA</h3>
+            <p class="right">
+                <mark>Durante questo periodo vengono esaltate le tematiche dei fiori e della primavera, simboli della rinascita viareggina dopo la prima Guerra Mondiale. Sono famose "Carnevale in primavera" di Umberto Boni, "Ballata a Viareggio" di Ermete Liberati, Michele Orselli e Mario Mariotti e "La viareggina" del 1939, di Maria Teresa Marchionni.</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <iframe src="https://www.youtube.com/embed/I775crddqjY" id="rinasci" class="iframeLeft" allowfullscreen></iframe>
+
+            <h2 class="left">ANNI '40/'50</h2> <br />
+            <h3 class="left">LA <span class="rosso">R</span>INASCITA <span class="rosso">P</span>OSTBELLICA</h3>
+            <p class="left">
+                <mark>A Viareggio il sentimento di rinascita dopo la guerra era molto forte tanto che, si racconta, si lanciavano coriandoli sulle buche lasciate dalle bombe pur di far Carnevale: "Risorgi ancor più bella", di Gino Guidi è forse una delle musiche più emozionanti della storia della musica viareggina...</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <iframe src="https://www.youtube.com/embed/PWcRzSv87jc" id="egisto" class="iframeRight" allowfullscreen></iframe>
+
+            <h2 class="right">ANNI '60</h2> <br />
+            <h3 class="right">GLI ANNI DEL <span class="rosso">B</span>OOM</h3>
+            <p class="right">
+                <mark>Viareggio risentì degli aiuti economici statunitensi tanto che, da questo momento risorse fino a meritarsi l'appellativo de "La Perla del Tirreno", raccontata in numerose canzoni, soprattutto dal poeta viareggino <a href="https://it.wikipedia.org/wiki/Egisto_Malfatti" target="_blank">Egisto Malfatti</a>, l'artista che più di tutti ebbe il merito di rendere la tradizione musicale viareggina nota fuori dai confini cittadini. Egli infatti fu in grado di raccontare la "Viareggio che fu", tramite numerose poesie e musiche, prime fa tutte: "Città rosa" e "Passeggiata Margherita".
+                </mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <iframe src="https://www.youtube.com/embed/Bz0OWAILjFA" id="chicca" class="iframeLeft" allowfullscreen></iframe>
+
+            <h2 class="left">OGGI</h2> <br />
+            <h3 class="left">IL <span class="rosso">F</span>ESTIVAL DI <span class="rosso">B</span>URLAMACCO</h3>
+            <p class="left">
+                <mark>Nel corso degli ultimi anni la canzone viareggina è sempre rimasta sulla cresta dell'onda, spinta dalla voglia di giovani esordienti locali di raccontare il proprio territorio. A tenere particolarmente banco è il tema del divertimento, inevitabilmente interpretato secondo i ritmi odierni: adesso la tradizione musicale del Carnevale viareggino è portata avanti dal Festival di Burlamacco, organizzato dal movimento dei <a href="https://www.carnevalari.it/" target="_blank">Carnevalari</a>,
+                un concorso canoro dove ogni anno vengono 'sfornate' canzoni nuove, che andranno ad aggiungersi al numero millenario delle musiche precedenti...</mark>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+
+</body>
+
+</html>

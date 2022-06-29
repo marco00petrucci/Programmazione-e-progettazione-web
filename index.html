@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+        body {
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url("image/burlamacca_sul_pennonehtml.jpg") no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        #IndexHeader {
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("image/burlamacca_sul_pennone.jpg") no-repeat right;
+            background-size: cover;
+            position: fixed;
+            transition: 0.5s;
+            box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.75);
+            height: auto;
+            margin: 0;
+            top: 0;
+            padding: 1%;
+            z-index: 998;
+        }
+        
+        #gif {
+            width: 4.5%;
+            margin: 0 2% 0 0;
+            float: left;
+            opacity: 0.9;
+            transition: 0.8s;
+            display: none;
+        }
+        
+        #cercaIndexHeader {
+            display: none
+        }
+        
+        #IndexTitolo,
+        #IndexTitolo2 {
+            font-family: "Retroica";
+            font-size: 1.5em;
+            text-align: right;
+            transition: 1s;
+        }
+        
+        #IndexTitolo {
+            display: none;
+            position: fixed;
+            top: 60%;
+            right: 2%;
+            margin: 0;
+            color: rgba(255, 255, 255, .9);
+        }
+        
+        #down {
+            display: none;
+            width: 70px;
+            position: fixed;
+            bottom: 5%;
+            right: 20%;
+        }
+        
+        #IndexTitolo2 {
+            position: relative;
+            margin: 120% 0 0;
+            padding: 20% 2% 3%;
+            color: #000;
+            background-color: #fff;
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -o-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            z-index: 2;
+        }
+        
+        .scacchiRedWhite {
+            position: relative;
+            background: rgba(213, 0, 3, 1.00);
+            clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+            -o-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+            -ms-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+            -moz-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+            -webkit-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+        }
+        
+        #contenitoreFoto {
+            position: relative;
+            left: 0;
+            right: 0;
+            width: 55%;
+        }
+        
+        #left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            cursor: url("image/curprev.cur"), auto;
+        }
+        
+        #foto {
+            width: 100%;
+            display: block
+        }
+        
+        #right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            cursor: url("image/curavanti.cur"), auto;
+        }
+        
+        .SlideButtons {
+            width: 40px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 7%;
+            z-index: 99;
+        }
+        
+        #indietro {
+            left: 1%;
+        }
+        
+        #avanti {
+            left: 48%;
+        }
+        
+        #startStop {
+            left: 25%;
+        }
+        
+        #startStop:hover {
+            filter: invert(100%)
+        }
+        
+        .scacchiRedWhite2 {
+            position: relative;
+            margin-top: -20%;
+            padding: 20% 2% 5%;
+            background-color: #000;
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -o-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            text-align: right;
+        }
+        
+        .scacchiRedWhite2 h4 {
+            font-family: 'Retroica';
+            color: #fff;
+            font-size: 1em
+        }
+        
+        .scacchiRedWhite2 p {
+            font-family: 'Berlin Sans';
+            color: #fff;
+            line-height: 1.3;
+            font-size: 0.7em
+        }
+        
+        .scacchiRedWhite2 em:last-child {
+            font-size: 0.7em
+        }
+        
+        @media screen and (min-width:360px) {
+            #IndexTitolo2 {
+                margin-top: 85%;
+                font-size: 1.5em;
+            }
+        }
+        
+        @media screen and (min-width:480px) {
+            #IndexTitolo2 {
+                margin-top: 60%;
+                font-size: 2.3em
+            }
+            #delSpace {
+                display: none
+            }
+        }
+        
+        @media screen and (min-width:600px) {
+            #IndexTitolo2 {
+                margin-top: 48%;
+                font-size: 2.6em
+            }
+        }
+        
+        @media screen and (min-width:700px) {
+            #IndexTitolo2 {
+                margin-top: 40%;
+                font-size: 3.1em
+            }
+            .del {
+                display: none
+            }
+            .scacchiRedWhite2 em:last-child {
+                font-size: 0.8em
+            }
+        }
+        
+        @media screen and (min-width:800px) {
+            #IndexHeader {
+                background: transparent;
+                box-shadow: none
+            }
+            #IndexHeader ul#menu {
+                display: inline;
+            }
+            #titolo {
+                display: none
+            }
+            #gif {
+                display: initial;
+                width: 4%
+            }
+            #gif:hover {
+                width: 4.2%
+            }
+            #cercaIndexHeader {
+                display: inline-block
+            }
+            #IndexTitolo {
+                display: block
+            }
+            #IndexTitolo,
+            #IndexTitolo2 {
+                font-size: 4em
+            }
+            #IndexTitolo2 {
+                margin-top: 60%
+            }
+            #down {
+                display: initial
+            }
+        }
+        
+        @media screen and (min-width:900px) {
+            .scacchiRedWhite2 p {
+                font-size: 0.9em
+            }
+        }
+        
+        @media screen and (min-width:1150px) {
+            #IndexTitolo,
+            #IndexTitolo2 {
+                font-size: 5.5em;
+            }
+            #IndexTitolo2 {
+                margin: 43% 0 0;
+            }
+            .scacchiRedWhite2 h4 {
+                font-size: 1.5em
+            }
+            .scacchiRedWhite2 p {
+                font-size: 1em
+            }
+        }
+        
+        @media screen and (min-width:1350px) {
+            #IndexTitolo2 {
+                margin-top: 43%
+            }
+        }
+        
+        @media screen and (min-width:1900px) {
+            #down {
+                bottom: 12%
+            }
+        }
+    </style>
+    <link rel="icon" href="image/logo.ico" />
+    <script src="cerca-top.js"></script>
+    <script>
+        //Menu e body dinamici allo scroll
+        function gestoreScroll() {
+            if (window.matchMedia("(max-width: 800px)").matches) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url('image/burlamacca_sul_pennonehtml.jpg') no-repeat";
+                document.body.style.backgroundPosition = "center";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.getElementById("IndexHeader").style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/burlamacca_sul_pennone.jpg')";
+                document.getElementById("IndexHeader").style.backgroundPosition = "right";
+                document.getElementById("IndexHeader").style.backgroundSize = "cover";
+                document.getElementById("IndexHeader").style.boxShadow = "0px 2px 30px 0px rgba(0,0,0,0.75)";
+                document.getElementById("titolo").style.display = "block";
+                document.getElementById("gif").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("IndexTitolo").style.display = "none";
+                document.getElementById("down").style.display = "none";
+                document.getElementById("cercaIndexHeader").style.display = "none";
+                document.getElementById("IndexHeader").style.padding = "2% 0 0";
+                document.getElementById("menu").style.padding = "0% 6%";
+            }
+            if ((window.matchMedia("(max-width: 800px)").matches) && (document.documentElement.scrollTop > 150)) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image/burlamacco_background.jpg')";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.body.style.backgroundPosition = "80% 100%";
+            }
+            if (window.matchMedia("(min-width: 800px)").matches) {
+                document.getElementById("titolo").style.display = "none";
+                document.getElementById("gif").style.display = "initial";
+                document.getElementById("menu").style.display = "inline";
+                document.getElementById("cercaIndexHeader").style.display = "inline-block";
+                document.getElementById("IndexHeader").style.padding = "1%";
+                document.getElementById("IndexTitolo").style.display = "initial";
+                document.getElementById("down").style.display = "initial";
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url('image/burlamacca_sul_pennonehtml.jpg') no-repeat center";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.getElementById("IndexHeader").style.background = "none";
+                document.getElementById("IndexHeader").style.boxShadow = "none";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 500)) {
+                document.getElementById("titolo").style.display = "none";
+                document.getElementById("menu").style.display = "inline";
+                document.getElementById("gif").style.display = "initial";
+                document.getElementById("cercaIndexHeader").style.display = "inline-block";
+                document.getElementById("IndexTitolo").style.display = "none";
+                document.getElementById("down").style.display = "none";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 600)) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('image/burlamacco_background.jpg')";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.body.style.backgroundPosition = "right";
+                document.getElementById("IndexHeader").style.zIndex = "998";
+                document.getElementById("IndexHeader").style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/burlamacca_sul_pennone.jpg')";
+                document.getElementById("IndexHeader").style.backgroundPosition = "right";
+                document.getElementById("IndexHeader").style.backgroundSize = "cover";
+                document.getElementById("IndexHeader").style.boxShadow = "0px 2px 30px 0px rgba(0,0,0,0.75)";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 1150)) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('image/galli2019.jpg') no-repeat";
+                document.body.style.backgroundAttachment = "fixed";
+                document.body.style.backgroundPosition = "50% 30%";
+                document.body.style.backgroundSize = "cover";
+            }
+            scrollFunction();
+        }
+
+        var galleria = [
+            "image/bertozzi2020.jpg",
+            "image/lombardi2020-2.jpg",
+            "image/bertozzi2019.jpg",
+            "image/lombardi2020.jpg",
+            "image/breschi2019.jpg",
+            "image/f.llicinquini2020.jpg",
+            "image/vannucci2019.jpg",
+            "image/lebigre2020-2.jpg",
+        ]
+
+        function gestoreClickAvanti() {
+            cambiaFoto(+1);
+        }
+
+        function gestoreClickIndietro() {
+            cambiaFoto(-1);
+        }
+
+        function cambiaFoto(x) {
+            indiceFoto += x;
+            if (indiceFoto == numeroFoto) {
+                indiceFoto = 0;
+            }
+            if (indiceFoto < 0) {
+                indiceFoto = numeroFoto - 1;
+            }
+            nodoFoto.setAttribute("src", galleria[indiceFoto]);
+        }
+
+        function gestoreClickStartStop() {
+            if (automatico) {
+                nodoStartStop.src = "image/play.svg";
+                automatico = false;
+            } else {
+                nodoStartStop.src = "image/stop.svg";
+                automatico = true;
+                cambiaFotoInAutomatico();
+            }
+        }
+
+        function cambiaFotoInAutomatico() {
+            if (automatico) {
+                cambiaFoto(+1);
+                setTimeout(cambiaFotoInAutomatico, RITARDO);
+            }
+        }
+
+        const RITARDO = 4000;
+        var indiceFoto, numeroFoto, automatico, nodoAvanti, nodoIndietro, nodoRight, nodoLeft, nodoStartStop, nodoFoto, nodocercaIndexHeader, nodocloseBtn;
+
+        function gestoreLoad() {
+            nodoAvanti = document.getElementById("avanti");
+            nodoIndietro = document.getElementById("indietro");
+            nodoAvanti.onclick = gestoreClickAvanti;
+            nodoIndietro.onclick = gestoreClickIndietro;
+            nodoRight = document.getElementById("right");
+            nodoLeft = document.getElementById("left");
+            nodoRight.onclick = gestoreClickAvanti;
+            nodoLeft.onclick = gestoreClickIndietro;
+            nodoStartStop = document.getElementById("startStop");
+            nodoFoto = document.getElementById("foto");
+            nodoStartStop.onclick = gestoreClickStartStop;
+            numeroFoto = galleria.length;
+            automatico = true;
+            indiceFoto = 0;
+            cambiaFoto(0);
+            nodocercaIndexHeader = document.getElementById("cercaIndexHeader");
+            nodocercaIndexHeader.onclick = openNav;
+            nodocloseBtn = document.getElementById("closeBtn-icon");
+            nodocloseBtn.onclick = closeNav;
+            cambiaFotoInAutomatico();
+            buttonTop = document.getElementById("buttonTop");
+            buttonTop.onclick = topFunction;
+            nodoTestoCerca = document.getElementById("sideTestoCerca");
+            nodoCercaBtn = document.getElementById("sideCercaBtn");
+            nodoRisultato = document.getElementById("risultato");
+            nodoCercaBtn.onclick = gestoreCerca;
+        }
+
+        window.onload = gestoreLoad;
+
+        window.onscroll = gestoreScroll;
+    </script>
+</head>
+
+<body>
+    <header id="IndexHeader">
+        <input type="checkbox" id="menu-btn" />
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaIndexHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn" />
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <h1 id="IndexTitolo">
+        <span class="rosso">C</span>ARNEVALE <br /> DI <span class="rosso">V</span>IAREGGIO
+    </h1>
+
+    <img src="image/down.svg" id="down" class="GoDown" alt="Go down" />
+
+    <h1 id="IndexTitolo2">
+        <span class="rosso">C</span>ARNEVALE <br> DI <span class="rosso">V</span>IAREGGIO
+    </h1>
+
+    <div class="scacchiRedWhite">
+        <img src="image/prev-icon.svg" class="SlideButtons" id="indietro" title="Immagine precedente" alt="previous" />
+        <div id="contenitoreFoto">
+            <img id="foto" alt="Photos" src="#" />
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        <img src="image/stop.svg" class="SlideButtons" id="startStop" title="Avvia/disattiva scorrimento automatico" alt="Play & Stop" />
+        <img src="image/next-icon.svg" class="SlideButtons" id="avanti" title="Immagine successiva" alt="next" />
+    </div>
+
+    <div class="scacchiRedWhite2">
+        <h4>IN QUESTO <br id="delSpace"><span class="rosso">S</span>ITO...</h4>
+        <p>...potrai imparare come<br class="del"> vengono creati i carri più <br class="del">famosi del mondo<br> con accenni sulla storia <br class="del">pluricentenaria della festa viareggina<br> e sulla tradizione <br class="del">della musica carnevalesca...<br
+            /><br>
+            <em>"donando per un mese l'illusion,<br class="del"> che tutto il mondo sia fatto di carton!..."</em><br>
+            <em>- Adriano Barghetti</em>
+        </p>
+    </div>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+</body>
+
+</html>

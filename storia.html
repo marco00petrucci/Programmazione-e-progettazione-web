@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La storia - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+        html {
+            background: linear-gradient(rgba(100, 100, 100, .5) 0%, rgba(0, 0, 0, .7) 100%), url("image/ricordo_di_viareggio.jpg") no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        
+        main {
+            margin-top: 15%;
+            z-index: 2;
+        }
+        
+        .sezioni:first-of-type {
+            margin: 5%
+        }
+        
+        .sezioni {
+            margin: 5%;
+        }
+        
+        br {
+            display: none
+        }
+        
+        main img {
+            float: right;
+            border: 5px solid rgba(255, 255, 255, .5);
+            animation: 1s ease-out 0s slideInFromLeft;
+        }
+        
+        main img:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease;
+        }
+        
+        .photoRight {
+            border-bottom-left-radius: 40px;
+        }
+        
+        .photoRight:hover {
+            border-bottom-left-radius: 0;
+        }
+        
+        .photoLeft {
+            border-bottom-right-radius: 40px;
+        }
+        
+        .photoLeft:hover {
+            border-bottom-right-radius: 0;
+        }
+        
+        #carrozza {
+            width: 40%;
+            margin-top: 20%;
+        }
+        
+        #rivista {
+            width: 30%;
+            margin-top: 20%;
+        }
+        
+        #pierrot {
+            width: 50%;
+            margin-top: 30%;
+        }
+        
+        #uberto {
+            width: 50%;
+            margin-top: 30%;
+        }
+        
+        #uberto2 {
+            display: none;
+            width: 50%;
+            margin-top: 30%;
+        }
+        
+        #dopoguerra {
+            width: 50%;
+            margin-top: 30%;
+        }
+        
+        #cittadella {
+            width: 50%;
+            margin-top: 30%;
+        }
+        
+        main h2 {
+            font-family: "Retroica";
+            text-align: center;
+            border: 5px solid red;
+            color: #fff;
+            padding: 1%;
+            transition: .2s;
+        }
+        
+        h2.right,
+        h2.left {
+            width: 60px;
+        }
+        
+        h2.right:nth-child(2) {
+            width: 140px;
+        }
+        
+        h2.left:nth-child(1) {
+            width: 160px;
+        }
+        
+        .sezioni:nth-last-of-type(2)>h2.right:nth-last-of-type(1) {
+            width: 160px;
+        }
+        
+        .sezioni:nth-last-of-type(1)>h2.left:nth-last-of-type(1) {
+            width: 160px;
+        }
+        
+        main h2.right:hover {
+            padding: 2%;
+            background-color: #000;
+            -ms-transform: rotate(10deg);
+            /* IE 9 */
+            transform: rotate(10deg);
+            border-radius: 50px;
+        }
+        
+        main h2.left:hover {
+            padding: 2%;
+            background-color: #000;
+            -ms-transform: rotate(-10deg);
+            /* IE 9 */
+            transform: rotate(-10deg);
+            border-radius: 50px;
+        }
+        
+        main h3 {
+            font-family: "Retroica";
+            color: #fff;
+            font-size: 1em
+        }
+        
+        mark {
+            background: rgba(0, 0, 0, .3);
+            color: #fff
+        }
+        
+        main p {
+            font-family: 'Berlin Sans';
+            font-size: 0.9em;
+        }
+        
+        main a {
+            color: #fff
+        }
+        
+        main a:hover {
+            background: rgba(213, 0, 3, 1.00)
+        }
+        
+        @media screen and (min-width:625px) {
+            main h1 {
+                font-size: 1.9em;
+            }
+            #carrozza {
+                width: 30%;
+                margin-top: 10%;
+            }
+            #rivista {
+                width: 25%;
+                margin-top: 10%;
+            }
+            #pierrot {
+                width: 30%;
+                margin-top: 20%;
+            }
+            #uberto {
+                width: 30%;
+                margin-top: 20%;
+            }
+            #uberto2 {
+                width: 30%;
+                margin-top: 20%;
+            }
+            #dopoguerra {
+                width: 30%;
+                margin-top: 20%;
+            }
+            #cittadella {
+                width: 30%;
+                margin-top: 20%;
+            }
+        }
+        
+        @media screen and (min-width:800px) {
+            html {
+                background: linear-gradient(rgba(100, 100, 100, .5) 0%, rgba(0, 0, 0, .7) 100%), url("image/ricordo_di_viareggio.jpg") no-repeat;
+                background-position: 0% 15%;
+                background-size: cover;
+                background-attachment: fixed;
+                height: 100%;
+            }
+            body {
+                background-image: url("image/timeline.png");
+                background-repeat: no-repeat;
+                background-position: 50% 25%;
+            }
+            .sezioni:first-of-type {
+                margin: 8% 0 0;
+            }
+            .sezioni {
+                margin: 8% 0 1%;
+            }
+            main h1 {
+                font-size: 2.1em;
+            }
+            .photoRight {
+                float: left;
+                margin: 0 0 0 8%;
+            }
+            .photoLeft {
+                float: right;
+                margin: 0 8% 0 0;
+            }
+            .right {
+                margin: 0 2% 1% 60%;
+            }
+            .left {
+                margin: 0 60% 1% 5%;
+            }
+            main p {
+                font-size: 1em;
+                line-height: 1.5;
+                line-height: 1.3;
+            }
+            #carrozza {
+                width: 26%;
+                margin-top: 0
+            }
+            #rivista {
+                width: 20%;
+                margin-top: 0
+            }
+            #pierrot {
+                margin-top: 0
+            }
+            #uberto {
+                margin-top: 0
+            }
+            #uberto2 {
+                display: none;
+                width: 30%;
+                margin-top: 0
+            }
+            #dopoguerra {
+                margin-top: 0
+            }
+            #cittadella {
+                margin-top: 0
+            }
+            br {
+                display: initial
+            }
+        }
+        
+        @media screen and (min-width:925px) {
+            body {
+                background-position: 50% 30%;
+            }
+            main h3 {
+                font-size: 1.4em
+            }
+        }
+        
+        @media screen and (min-width:1000px) {
+            body {
+                background-position: 50% 30%;
+            }
+            .sezioni {
+                margin: 15% 0 5%;
+            }
+            main h1 {
+                font-size: 4em;
+            }
+        }
+    </style>
+    <script src="cerca-top.js"></script>
+    <script>
+        //Menu dinamico allo scroll
+        function gestoreScroll() {
+            if (window.matchMedia("(max-width: 800px)").matches) {
+                document.getElementById("titolo").style.display = "block";
+                document.getElementById("gif").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("cercaHeader").style.display = "none";
+                document.getElementById("header").style.padding = "2% 0 0";
+                document.getElementById("menu").style.padding = "0% 6%";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 80)) {
+                document.getElementById("titolo").style.display = "none";
+                document.getElementById("gif").style.display = "inline-block";
+                document.getElementById("menu").style.display = "inline";
+                document.getElementById("menu").style.padding = "0% 6%";
+                document.getElementById("header").style.padding = "1%";
+                document.getElementById("cercaHeader").style.display = "inline-block";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop < 80)) {
+                document.getElementById("titolo").style.display = "block";
+                document.getElementById("gif").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("cercaHeader").style.display = "none";
+                document.getElementById("header").style.padding = "2%";
+                document.getElementById("menu").style.padding = "0% 6%";
+            }
+            scrollFunction();
+        }
+
+        //Sidenav Search
+        function gestoreOpenCloseNav() {
+            var nodocercaHeader = document.getElementById("cercaHeader");
+            nodocercaHeader.onclick = openNav;
+            var nodocloseBtn = document.getElementById("closeBtn-icon");
+            nodocloseBtn.onclick = closeNav;
+        }
+
+        var vid, img, img2;
+
+        function gestoreLoad() {
+            img = document.getElementById("uberto");
+            img2 = document.getElementById("uberto2");
+            img.onmouseover = hover;
+            img2.onmouseout = hoverLeave;
+            buttonTop = document.getElementById("buttonTop");
+            buttonTop.onclick = topFunction;
+            nodoTestoCerca = document.getElementById("sideTestoCerca");
+            nodoCercaBtn = document.getElementById("sideCercaBtn");
+            nodoRisultato = document.getElementById("risultato");
+            nodoCercaBtn.onclick = gestoreCerca;
+            gestoreOpenCloseNav();
+        }
+
+        //Effetto hover sull'immagine di Uberto Bonetti
+        function hover() {
+            img.style.display = "none";
+            img2.style.display = "initial";
+            img.style.transform = "scale(1.1)";
+            img2.style.transform = "scale(1.1)";
+            img.style.animation = "none";
+            img2.style.animation = "none";
+        }
+
+        function hoverLeave() {
+            img.style.display = "initial";
+            img2.style.display = "none";
+            img.style.transform = "scale(1.0)";
+            img2.style.transform = "scale(1.0)";
+            img.style.animation = "none";
+            img2.style.animation = "none";
+        }
+
+        window.onload = gestoreLoad;
+
+        window.onscroll = gestoreScroll;
+    </script>
+    <link rel="icon" href="image/logo.ico" />
+</head>
+
+<body>
+    <header id="header">
+        <input type="checkbox" id="menu-btn">
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn">
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <main>
+        <h1>UNA <span class="rosso">T</span>RADIZIONE LUNGA QUASI <span class="aumenta"><span class="rosso">1</span>50</span> ANNI...</h1>
+
+        <div class="sezioni">
+            <img src="image/1873.jpg" class="photoRight" id="carrozza" title="Le carrozze in Via Regia" alt="Carrozza in Via Regia" />
+
+            <h2 class="right">1873</h2> <br />
+            <h3 class="right">GLI <span class="rosso">E</span>SORDI DELLA FESTA <span class="rosso">V</span>IAREGGINA</h3>
+            <p class="right">
+                <mark>Nata da un'idea fra giovani della Viareggio di allora che frequentavano il caffè del Casinò, la prima sfilata di carrozze si svolse nel 1873 in Via Regia, nel cuore della città vecchia il 24 febbraio 1873.<br />
+                Negli anni successivi, la sfilata si trasferì in Passeggiata, a pochi passi dalla spiaggia, dove il mare e il sole hanno reso magica questa tradizione centenaria...</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <img src="image/viareggio_in_maschera.jpg" class="photoLeft" id="rivista" alt="Viareggio in maschera 1921" />
+
+            <h2 class="left">1921</h2> <br />
+            <h3 class="left">L'<span class="rosso">A</span>NNO DELLA <span class="rosso">S</span>VOLTA</h3>
+            <p class="left">
+                <mark>Nonostante l'interruzione a causa della guerra, la manifestazione riprese e, nel 1921 furono molte le novità, fra le quali l'inno ufficiale, la "Coppa di Champagne", e la promozione della manifestazione attraverso la rivista ufficiale "Viareggio in maschera", ancora oggi testimone indiscussa. 
+                Sempre nel 1921, per la prima volta le maschere si animarono a suon di musica: una banda trovò posto a bordo del carro intitolato "Tonin di Burio", che rappresentava la festa nuziale nell'aia di una casa colonica.</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <img src="image/pierrot.jpg" class="photoRight" id="pierrot" alt="Pierrot di Giampieri" title="Il 'Pierrot' di Giampieri, 1923" />
+
+            <h2 class="right">1923 - 1925</h2> <br />
+            <h3 class="right"><span class="rosso">M</span>OVIMENTI E <span class="rosso">C</span>ARTAPESTA</h3>
+            <p class="right">
+                <mark>Nel 1923 la magia del movimento animò i carri allegorici: il primo della storia fu il Pierrot del Giampieri che sbatteva le palpebre. Ma la vera rivoluzione avvenne nel 1925. Per iniziativa di <a href="https://www.carnevalari.it/personaggi/antonio-darliano-1899-1992/" target="_blank">Antonio D'Arliano</a> e di alcuni costruttori, venne inventata, per realizzare i carri, la tecnica della carta a calco, da tutti conosciuta come cartapesta. Questo materiale, estremamente leggero, ha consentito costruzioni colossali e sempre più ardite nella scenografia e nella movimentazione.</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <img src="image/uberto_bonetti.jpg" class="photoLeft" id="uberto" title="Uberto Bonetti, il padre del 'Burlamacco'" alt="Uberto Bonetti, il padre del 'Burlamacco'" />
+            <img src="image/uberto_bonetti2.jpg" class="photoLeft" id="uberto2" title="Uberto Bonetti, il padre del 'Burlamacco'" alt="Uberto Bonetti, il padre del 'Burlamacco'" />
+
+            <h2 class="left">1930</h2> <br />
+            <h3 class="left">NASCE <span class="rosso">B</span>URLAMACCO</h3>
+            <p class="left">
+                <mark>Nel 1930 <a href="https://it.wikipedia.org/wiki/Uberto_Bonetti" target="_blank">Uberto Bonetti</a>, pittore e grafico futurista, ideò Burlamacco: la nuova maschera ufficiale del Carnevale di Viareggio che, nel manifesto del 1931, apparve in compagnia di Ondina, bagnante simbolo della stagione estiva, sullo sfondo dei moli protesi sul mare. Prendendo spunto dalle maschere della Commedia dell'Arte e disegnandola in chiave futurista, Bonetti scelse di unificare i due momenti clou della città viareggina in una maschera: l'estate, con i colori bianco e rosso tipici degli ombrelloni sulle spiagge negli anni '30 e il Carnevale.</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <img src="image/bomba.jpg" class="photoRight" id="dopoguerra" title="'La bomba' di Arnaldo Galli" alt="" />
+
+            <h2 class="right">1946 - 2000</h2> <br />
+            <h3 class="right">DALLA <span class="rosso">R</span>INASCITA AL <span class="rosso">B</span>OOM</h3>
+            <p class="right">
+                <mark>Dopo la seconda guerra mondiale, il Carnevale di Viareggio rinacque con più forza nel 1946. Nel 1954 venne trasmesso per la prima volta in diretta sulla neonata Rai, e quattro anni dopo finì in Eurovisione.<br />
+				Nel 1960 ci fu un incendio ai baracconi di via Cairoli, dove venivano costruiti i carri, ma le fiamme non riuscirono a mandare in fumo il Carnevale, che si trasferì per quarant'anni negli hangar di via Marco Polo. Nel 1984 la Lotteria nazionale di Viareggio venne abbinata al concorso dei carri di prima categoria e nel biennio 1988-1989 il sabato sera televisivo degli italiani, su RaiUno, venne dedicato al Carnevale viareggino. Nel 1998 viene istituito il Burlamacco d'Oro, che rappresenta il riconoscimento della città a uomini straordinari del mondo della cultura.</mark>
+            </p>
+        </div>
+
+        <div class="sezioni">
+            <img src="image/cittadella.jpg" class="photoLeft" id="cittadella" title="La cittadella del Carnevale di Viareggio" alt="La cittadella del Carnevale di Viareggio" />
+
+            <h2 class="left">2001 - OGGI</h2> <br />
+            <h3 class="left">IL <span class="rosso">C</span>ARNEVALE D'<span class="rosso">E</span>UROPA</h3>
+            <p class="left">
+                <mark>Nel 2001 è stata inaugurata la nuova Cittadella del Carnevale, straordinario complesso architettonico, interamente dedicato alla creazione dei carri e alla conservazione del Carnevale di Viareggio. <br />
+                Ai giorni nostri, il Carnevale di Viareggio viene ancora trasmesso in diretta il giorno del Martedì Grasso su RaiTre. Inoltre ogni anno, molti ospiti illustri, politici, personaggi dello spettacolo e dello sport vengono a Viareggio per ammirare i giganti di cartapesta così come ad ogni Corso Mascherato di ogni edizione del Carnevale, centinaia di migliaia di persone hanno decretato e decretano il successo della manifestazione.</mark>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+
+</body>
+
+</html>

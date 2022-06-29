@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Le costruzioni - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+        body {
+            background: linear-gradient(rgba(100, 100, 100, .5) 0%, rgba(0, 0, 0, .5) 100%), url("image/ciaramitaro2017.jpg") no-repeat;
+            background-size: cover;
+            background-position: 50% 20%;
+            background-attachment: fixed;
+        }
+        
+        main {
+            padding: 5%;
+            color: #fff;
+            position: absolute;
+            top: 10%
+        }
+        
+        main p {
+            font-family: 'Berlin Sans';
+            text-align: center;
+            margin: 1% 10%;
+            line-height: 1.3;
+            font-size: .8em
+        }
+        
+        mark {
+            background: rgba(0, 0, 0, .7);
+            color: #fff
+        }
+        
+        #down {
+            width: 90px;
+            position: absolute;
+            top: 55%;
+            right: 0;
+            left: 0;
+            margin: 0 48%;
+        }
+        
+        .obliquo h2,
+        .obliquo h4 {
+            font-family: 'Retroica';
+            margin-left: 5%;
+            color: #fff;
+        }
+        
+        .obliquo ol {
+            color: #fff;
+            font-family: 'Berlin Sans';
+            line-height: 1.3;
+            list-style-position: inside;
+        }
+        
+        .obliquo img {
+            margin-left: 20%;
+            width: 20%;
+            padding: .5%;
+            border: 5px solid rgba(255, 255, 255, .5);
+            border-radius: 40px;
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease;
+            vertical-align: middle;
+        }
+        
+        .obliquo img:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+            border-radius: 0px;
+        }
+        
+        #divCreta {
+            margin-top: 130%
+        }
+        
+        .rossoGesso {
+            color: red
+        }
+        
+        @media screen and (min-width:465px) {
+            #divCreta {
+                margin-top: 100%
+            }
+            #down {
+                top: 50%
+            }
+        }
+        
+        @media screen and (min-width:600px) {
+            #divCreta {
+                margin-top: 70%;
+            }
+        }
+        
+        @media screen and (min-width:700px) {
+            main h1 {
+                font-size: 2em
+            }
+            #down {
+                top: 45%;
+            }
+            #divCreta {
+                margin-top: 50%
+            }
+        }
+        
+        @media screen and (min-width:800px) {
+            main {
+                top: 20%
+            }
+            main p {
+                font-size: 1em;
+                margin: 1% 20%;
+            }
+            #down {
+                top: 70%;
+            }
+            .obliquo img {
+                width: 12%;
+            }
+            #divCreta {
+                margin: 60% 0 0;
+                padding: 10% 0% 3%;
+                background-color: #fff;
+                clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -o-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                text-align: right;
+                z-index: 900;
+            }
+            #divGesso {
+                position: relative;
+                margin-top: -20%;
+                padding: 10% 0 1%;
+                background-color: rgba(213, 0, 3, 1.00);
+                clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                -o-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                -ms-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                -moz-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                text-align: left;
+            }
+            .rossoGesso {
+                color: #fff
+            }
+            #divCartapesta {
+                position: relative;
+                margin-top: -10%;
+                padding: 20% 2% 5%;
+                background-color: #000;
+                clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -o-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+                text-align: right;
+            }
+            #divCreta h2,
+            #divCreta h4 {
+                color: #000;
+                margin: 0 4% 1%
+            }
+            #divCreta ol {
+                margin: 1% 3% 1% 65%;
+                color: #000
+            }
+            #cretaImg {
+                margin: 0 3% 1%;
+                border: 5px solid red;
+            }
+            #divGesso ol {
+                margin: 1% 70% 1% 1%
+            }
+            #divGesso img {
+                margin: 1% 0% 1% 3%;
+            }
+            #divCartapesta h2,
+            #divCartapesta h4 {
+                margin: 0 4% 1%
+            }
+            #divCartapesta ol {
+                margin: 1% 1% 1% 65%;
+            }
+            #divCartapesta img {
+                margin: 0 3% 1% 0
+            }
+        }
+        
+        @media screen and (min-width:925px) {
+            #divCreta {
+                margin: 50% 0 0;
+            }
+        }
+        
+        @media screen and (min-width:1024px) {
+            main h1 {
+                font-size: 4.1em;
+            }
+            #down {
+                top: 75%;
+            }
+            #divCreta {
+                margin: 40% 0 0;
+            }
+        }
+    </style>
+    <link rel="icon" href="image/logo.ico" />
+    <script src="header-opensidenav.js"></script>
+    <script src="cerca-top.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <input type="checkbox" id="menu-btn">
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn">
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <main id="giganti">
+        <h1 id="tit">I <span class="aumenta"><span class="rosso">G</span>IGANTI<br></span> DI <span class="rosso">C</span>ARTAPESTA</h1><br>
+
+        <p>
+            <mark>Modelli in creta, calchi in gesso, carta di giornale e colla sono i semplici ingredienti del più grande spettacolo al mondo nel suo genere. Alti oltre <strong>20 metri</strong>, larghi <strong>12</strong>, i carri sono creati per stupire il pubblico con effetti coreografici straordinari. A realizzare le festose macchine di cartapesta sono i maestri costruttori viareggini, con più di 25 ditte artigiane e con più di mille persone al lavoro. In molti casi si tratta di figli d'arte, che hanno ereditato dai padri e dai nonni le abilità e i segreti di un mestiere unico al mondo...</mark>
+        </p>
+    </main>
+
+    <a href="#divCreta">
+        <img src="image/down.svg" id="down" class="GoDown" alt="down" />
+    </a>
+
+    <div class="obliquo" id="divCreta">
+        <h2><span class="rosso">1</span>°FASE</h2>
+        <h4><span class="rosso">F</span>ERRO E <span class="rosso">C</span>RETA</h4>
+
+        <ol>
+            <li>
+                Disegnare il bozzetto
+            </li>
+            <li>
+                Costruire l'armatura in ferro della figura desiderata
+            </li>
+            <li>
+                Rivestire l'armatura con la creta da modellare
+            </li>
+        </ol>
+
+        <img src="image/ciaramitaro2019-1.jpg" class="fotoCostruzioni" id="cretaImg" title="Ferro e creta" alt="Ferro e creta" />
+    </div>
+
+    <div class="obliquo" id="divGesso">
+        <h2><span class="rossoGesso">2</span>°FASE</h2>
+        <h4>IL <span class="rossoGesso">G</span>ESSO</h4>
+
+        <ol>
+            <li>
+                Inserire sulla creta delle lamelle per poter permettere il distacco dei successivi calchi
+            </li>
+            <li>
+                Colare o spruzzare con un grosso pennello il gesso sul modello di creta ricoprendolo
+            </li>
+            <li>
+                Aspettare che il gesso asciughi, poi staccarlo, togliendo le lemelle per prima cosa: si otterranno due forme concave.
+            </li>
+        </ol>
+
+        <img src="image/ciaramitaro2019-2.jpg" class="fotoCostruzioni" title="Gesso" alt="Gesso" />
+        <img src="image/ciaramitaro2019-3.jpg" class="fotoCostruzioni" title="Lo stampo pronto per la cartapesta" alt="Stampo pronto per la cartapesta" />
+    </div>
+
+    <div class="obliquo" id="divCartapesta">
+        <h2 class="Ret"><span class="rosso">3</span>°FASE</h2>
+        <h4 class="Ret">LA <span class="rosso">C</span>ARTAPESTA</h4>
+
+        <ol>
+            <li>
+                Applicare sulla forma concava di gesso ottenuta pezzi di carta di giornale, facendoli ben aderire.
+            </li>
+            <li>
+                Proseguire sovrapponendo strati di carta grigia e rosa alternati, spennellati di colla di farina.
+            </li>
+            <li>
+                Quando la carta sarà bene asciutta e indurita, staccare dalle forme di gesso i rivestimenti ottenuti e unirle.
+            </li>
+            <li>
+                Non resta che prendere pennelli, colori e fantasia e dipingere il soggetto.
+            </li>
+        </ol>
+
+        <img src="image/ciaramitaro2019-4.jpg" class="fotoCostruzioni" title="La cartapesta" alt="La cartapesta" />
+        <img src="image/ciaramitaro2019-5.jpg" class="fotoCostruzioni" title="Il colore" alt="Il colore" />
+    </div>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+
+</body>
+
+</html>

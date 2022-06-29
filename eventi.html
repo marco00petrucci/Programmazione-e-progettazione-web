@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gli eventi - Carnevale di Viareggio</title>
+    <style>
+        @import url("generali.css");
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url("image/lebigre2020.jpg") no-repeat;
+            background-size: cover;
+            background-position: top;
+            background-attachment: fixed;
+        }
+
+        .date2021 {
+            margin-top: 14%;
+            left: 0;
+            right: 0;
+        }
+
+        .date2021 h1 {
+            font-size: 1.5em;
+            margin: 1% 0% 2%;
+        }
+
+        .date2021 h3 {
+            font-size: 1em;
+            margin: 1%;
+        }
+
+        #show,
+        #show2 {
+            display: none;
+            font-family: 'Berlin Sans';
+            color: #000;
+            background: rgba(213, 0, 3, 1.00);
+            width: 50%;
+            text-align: center;
+        }
+
+        #show em,
+        #show2 em {
+            font-size: 0.7em;
+            line-height: 1;
+        }
+
+        #show {
+            margin: 0 auto;
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            z-index: 2
+        }
+
+        #show2 {
+            position: absolute;
+            margin: 5% 5% 0;
+            z-index: 2
+        }
+
+        #down {
+            width: 80px;
+            position: absolute;
+            top: 30%;
+            right: 0;
+            left: 0;
+            margin: 0 46%;
+        }
+
+        p mark {
+            background: rgba(0, 0, 0, .7);
+            color: #fff
+        }
+
+        .divCircuito {
+            background: rgba(55, 55, 55, 1.00);
+            margin-top: 30%;
+            padding: 25% 0 5%;
+            clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+            -o-clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+            -ms-clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+            -moz-clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+            -webkit-clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .divCircuito h4 {
+            font-family: 'Retroica';
+            color: #fff;
+            background: #000;
+            position: absolute;
+            text-align: center;
+            border: 2px #fff solid;
+            width: 20%;
+            font-size: 0.75em;
+            margin: -4% 3%;
+            padding: 1%;
+            transition: .3s ease;
+        }
+
+        .divCircuito h4:hover {
+            border: 5px red solid;
+            border-radius: 50px
+        }
+
+        #divBurlamacco {
+            position: absolute;
+            margin: 10% 0 0 3%;
+            width: 60%;
+        }
+
+        #fotoBurlamacco {
+            width: 50%;
+        }
+
+        #Burlamacco {
+            position: absolute;
+            left: 0;
+            width: 50%;
+        }
+
+        #overlayBurlamacco {
+            position: relative;
+            width: 50%;
+            padding: .5% 0;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(255, 255, 255, .7);
+            border-radius: 10px
+        }
+
+        #divBurlamacco:hover #overlayBurlamacco {
+            opacity: 1;
+        }
+
+        #overlayBurlamacco p {
+            font-family: "Berlin Sans";
+            color: #000;
+            font-size: 0.2em;
+            width: 70%;
+            margin: 13% 15%
+        }
+
+        #mappa {
+            position: relative;
+            margin: -8% 0% 0 42%;
+            width: 53%;
+            z-index: 2;
+            border: 5px rgba(250, 250, 250, 1.00) solid;
+            -webkit-box-shadow: -9px 9px 49px 9px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -9px 9px 49px 9px rgba(0, 0, 0, 0.75);
+            box-shadow: -9px 9px 49px 9px rgba(0, 0, 0, 0.75);
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease;
+        }
+
+        #mappa:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        #testoRioni h1 {
+            width: 30%;
+            font-size: 1.5em;
+            margin-top: 3%
+        }
+
+        #testoRioni p {
+            font-family: 'Berlin Sans';
+            text-align: center;
+            line-height: 1.2;
+            margin: 3% 20% 0
+        }
+
+        .divRioni {
+            position: relative;
+            margin-top: 50%;
+            text-align: center;
+        }
+
+        #right,
+        #left {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(213, 0, 3, .910);
+        }
+
+        #right p,
+        #left p {
+            font-family: 'Berlin Sans';
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        #left {
+            left: 0;
+            clip-path: polygon(0 50%, 0 100%, 70% 100%);
+            -o-clip-path: polygon(0 50%, 0 100%, 70% 100%);
+            -ms-clip-path: polygon(0 50%, 0 100%, 70% 100%);
+            -moz-clip-path: polygon(0 50%, 0 100%, 70% 100%);
+            -webkit-clip-path: polygon(0 50%, 0 100%, 70% 100%);
+        }
+
+        #right {
+            right: 0;
+            clip-path: polygon(100% 50%, 30% 100%, 100% 100%);
+            -o-clip-path: polygon(100% 50%, 30% 100%, 100% 100%);
+            -ms-clip-path: polygon(100% 50%, 30% 100%, 100% 100%);
+            -moz-clip-path: polygon(100% 50%, 30% 100%, 100% 100%);
+            -webkit-clip-path: polygon(100% 50%, 30% 100%, 100% 100%);
+        }
+
+        #right img {
+            width: 30%;
+            margin: 90% 0% 5% 60%;
+        }
+
+        #left img {
+            width: 30%;
+            margin: 90% 60% 5% 0%;
+        }
+
+        #overlayDarsena {
+            position: absolute;
+            bottom: 0;
+            right: 30%;
+            left: 0;
+            margin: 90% 60% 5% 5%;
+            background-color: #000;
+            overflow: hidden;
+            width: 0;
+            height: 25.5%;
+            transition: .3s ease-out;
+            text-align: center
+        }
+
+        #left:hover #overlayDarsena {
+            width: 30%;
+            right: 0;
+            border-radius: 50%
+        }
+
+        #testoOverlayDarsena,
+        #testoOverlayMarco {
+            color: #fff;
+            font-size: .5em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        #overlayMarco {
+            position: absolute;
+            bottom: 0;
+            left: 30%;
+            right: 0;
+            margin: 90% 0% 5% 65%;
+            background-color: #000;
+            overflow: hidden;
+            width: 0;
+            height: 25.5%;
+            transition: .3s ease-out;
+            text-align: center
+        }
+
+        #right:hover #overlayMarco {
+            width: 30%;
+            left: 0;
+            border-radius: 50%
+        }
+
+        #testoOverlayMarco a,
+        #testoOverlayDarsena a {
+            color: #fff;
+            text-decoration: none
+        }
+
+        #testoOverlayMarco a:hover,
+        #testoOverlayDarsena a:hover {
+            text-decoration: underline
+        }
+
+        @media screen and (min-width:360px) {
+            #show {
+                top: 32%;
+            }
+
+            #show,
+            #show2 {
+                width: 30%;
+            }
+        }
+
+        @media screen and (min-width:480px) {
+            .divCircuito p {
+                width: 25%;
+                margin: 12% 3% 0;
+            }
+
+            #show,
+            #show2 {
+                width: 28%;
+            }
+
+            #show {
+                top: 30%;
+            }
+
+            #overlayBurlamacco p {
+                font-size: .5em;
+            }
+        }
+
+        @media screen and (min-width:625px) {
+            .divCircuito h4 {
+                font-size: 1em;
+            }
+
+            .divCircuito p {
+                font-size: 0.7em;
+            }
+
+            #overlayBurlamacco p {
+                font-size: .7em;
+            }
+
+            #right,
+            #left {
+                width: 50%;
+            }
+
+            .divRioni {
+                margin-top: 30%
+            }
+        }
+
+        @media screen and (min-width:800px) {
+            .date2021 h1 {
+                font-size: 2.5em;
+            }
+
+            .date2021 h3 {
+                font-size: 1.6em
+            }
+
+            .divCircuito {
+                margin-top: 30%
+            }
+
+            .divCircuito h4 {
+                border: 5px #fff solid;
+                width: 25%;
+                font-size: 1em;
+            }
+
+            .divCircuito h4:hover {
+                padding: 2%;
+                border: 5px red solid;
+            }
+
+            .divCircuito p {
+                margin: 12% 4% 0;
+                font-size: 0.8em;
+            }
+
+            #mappa {
+                border-bottom-left-radius: 40px;
+                border-top-left-radius: 40px;
+            }
+
+            #mappa:hover {
+                border-bottom-left-radius: 0px;
+                border-top-left-radius: 0px;
+            }
+
+            #overlayBurlamacco p {
+                font-size: .8em;
+            }
+
+            .divRioni h1 {
+                font-size: 4em;
+            }
+
+            #show {
+                top: 60%;
+            }
+
+            #show,
+            #show2 {
+                width: 20%;
+            }
+
+            #show2 {
+                margin: 7% 15% 0;
+            }
+
+            #show em,
+            #show2 em {
+                font-size: 0.8em
+            }
+
+            #down {
+                top: 50%
+            }
+        }
+
+        @media screen and (min-width:1024px) {
+
+            .date2021 h1,
+            #testoRioni h1 {
+                font-size: 3.4em;
+            }
+
+            .date2021 h3 {
+                font-size: 2.3em
+            }
+
+            #down {
+                top: 70%;
+                margin: 0 48%
+            }
+
+            .divCircuito {
+                margin-top: 10%
+            }
+
+            .divCircuito h4 {
+                border: 10px #fff solid;
+                width: 25%;
+                font-size: 2em;
+            }
+
+            .divCircuito h4:hover {
+                border: 10px red solid;
+            }
+
+            .divCircuito p {
+                width: 25%;
+                margin: 13% 4% 0;
+                font-size: 1em;
+            }
+
+            #show {
+                top: 60%;
+            }
+
+            #show,
+            #show2 {
+                width: 14%;
+                font-size: 1.2em
+            }
+
+            #overlayBurlamacco p {
+                margin: 20% 15%;
+                font-size: 1.2em
+            }
+
+            #testoOverlayDarsena,
+            #testoOverlayMarco {
+                font-size: 1em;
+            }
+
+            #testoRioni p {
+                margin: 3% 30% 0
+            }
+        }
+    </style>
+    <link rel="icon" href="image/logo.ico" />
+    <script src="cerca-top.js"></script>
+    <script>
+        //Background del body dinamico allo scroll
+        function gestoreScroll() {
+            if (window.matchMedia("(max-width: 800px)").matches) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url('image/lebigre2020.jpg') no-repeat";
+                document.body.style.backgroundPosition = "top";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.getElementById("titolo").style.display = "block";
+                document.getElementById("gif").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("cercaHeader").style.display = "none";
+                document.getElementById("header").style.padding = "2% 0 0";
+                document.getElementById("menu").style.padding = "0% 6%";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 80)) {
+                document.getElementById("titolo").style.display = "none";
+                document.getElementById("gif").style.display = "inline-block";
+                document.getElementById("menu").style.display = "inline";
+                document.getElementById("menu").style.padding = "0% 6%";
+                document.getElementById("header").style.padding = "1%";
+                document.getElementById("cercaHeader").style.display = "inline-block";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop < 80)) {
+                document.getElementById("titolo").style.display = "block";
+                document.getElementById("gif").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+                document.getElementById("cercaHeader").style.display = "none";
+                document.getElementById("header").style.padding = "2%";
+                document.getElementById("menu").style.padding = "0% 6%";
+            }
+            if ((window.matchMedia("(max-width: 800px)").matches) && (document.documentElement.scrollTop > 250)) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('image/rione.jpg')";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+                document.body.style.backgroundPosition = "80% 100%";
+            }
+            if (window.matchMedia("(min-width: 800px)").matches) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url('image/lebigre2020.jpg') no-repeat";
+                document.body.style.backgroundPosition = "top";
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundAttachment = "fixed";
+            }
+            if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 500)) {
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/rione.jpg') no-repeat";
+                document.body.style.backgroundAttachment = "fixed";
+                document.body.style.backgroundPosition = "50% 30%";
+                document.body.style.backgroundSize = "cover";
+            }
+            scrollFunction();
+        }
+
+        //Mostra e nascondi testo all'hover
+        var titolo, muovi, scorri, scorri2;
+
+        function hover() {
+            scorri.style.display = "initial";
+            scorri2.style.display = "initial";
+        }
+
+        function notHover() {
+            scorri.style.display = "none";
+            scorri2.style.display = "none";
+        }
+
+        //Gestione della mappa delle entrate
+        function hoverImg() {
+            mappa.style.transform = "scale(1.1)";
+        }
+
+        function hoverImgLeave() {
+            mappa.style.transform = "scale(1.1)";
+        }
+
+        //Sidenav Search
+        function gestoreOpenCloseNav() {
+            var nodocercaHeader = document.getElementById("cercaHeader");
+            nodocercaHeader.onclick = openNav;
+            var nodocloseBtn = document.getElementById("closeBtn-icon");
+            nodocloseBtn.onclick = closeNav;
+        }
+
+        const LARGHEZZA_FOTO = 1285;
+        var nodoMappa, nodiArea, coordinateAree, dimensioneFoto, mappa, nodoTestoCerca, nodoCercaBtn, nodoRisultato, buttonTop;
+
+        function gestoreLoad() {
+            titolo = document.getElementById("corsi");
+            muovi = document.getElementById("muovi");
+            scorri = document.getElementById("show");
+            scorri2 = document.getElementById("show2");
+            titolo.onmouseover = hover;
+            titolo.onmouseout = notHover;
+            muovi.onmouseover = hover;
+            muovi.onmouseout = notHover;
+            mappa = document.getElementById("mappa");
+            mappa.onmouseover = hoverImg;
+            mappa.onmouseout = hoverImgLeave;
+            nodiArea = document.getElementsByTagName("area");
+            nodoMappa = document.getElementById("mappa");
+            coordinateAree = [];
+            for (var i = 0; i < nodiArea.length; i++) {
+                var nodoArea = nodiArea[i];
+                coordinateAree[i] = nodoArea.coords.split(',');
+            }
+            dimensioneFoto = LARGHEZZA_FOTO;
+            window.onresize = gestoreResize;
+            gestoreResize();
+            buttonTop = document.getElementById("buttonTop");
+            buttonTop.onclick = topFunction;
+            nodoTestoCerca = document.getElementById("sideTestoCerca");
+            nodoCercaBtn = document.getElementById("sideCercaBtn");
+            nodoRisultato = document.getElementById("risultato");
+            nodoCercaBtn.onclick = gestoreCerca;
+            gestoreOpenCloseNav();
+        }
+
+        function gestoreResize() {
+            var attualeDimensioneFoto = nodoMappa.width;
+            var ratio = attualeDimensioneFoto / dimensioneFoto;
+            for (var i = 0; i < nodiArea.length; i++) {
+                for (var j = 0; j < coordinateAree[i].length; j++) {
+                    coordinateAree[i][j] *= ratio;
+                }
+                nodiArea[i].coords = coordinateAree[i].join(',');
+            }
+            dimensioneFoto = attualeDimensioneFoto;
+        }
+
+        window.onload = gestoreLoad;
+
+        window.onscroll = gestoreScroll;
+    </script>
+</head>
+
+<body>
+    <header id="header">
+        <input type="checkbox" id="menu-btn">
+        <label id="menu-icon" for="menu-btn">
+            <span id="nav-icon"></span>
+        </label>
+        <a href="index.html">
+            <img src="image/burlamacca.gif" id="gif" alt="La Burlamacca">
+        </a>
+        <h1 id="titolo">
+            <a href="index.html">
+                <span class="rosso">C</span>ARNEVALE DI <span class="rosso">V</span>IAREGGIO
+            </a>
+        </h1>
+        <ul id="menu">
+            <li title="Pagina iniziale">
+                <a href="index.html"><span class="aumenta">H</span>ome</a>
+            </li>
+            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+                <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
+            </li>
+            <li title="Una storia iniziata più di 150 anni fa...">
+                <a href="storia.html">La <span class="aumenta">s</span>toria</a>
+            </li>
+            <li title="Scopri come vengono costruiti i sogni">
+                <a href="costruzioni.html">Le <span class="aumenta">c</span>ostruzioni</a>
+            </li>
+            <li title="La musica del Carnevale di Viareggio">
+                <a href="musica.html">La <span class="aumenta">m</span>usica</a>
+            </li>
+            <li title="Idealizzazione sito">
+                <a href="about.html"><span class="aumenta">A</span>bout</a>
+            </li>
+        </ul>
+
+        <div class="casellaCerca" id="cercaHeader">
+            <input type="text" class="testoCerca" id="headerTestoCerca" placeholder="Cerca..." />
+            <a class="cercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+    </header>
+
+    <nav id="sidenav">
+        <input type="checkbox" id="menu-closeBtn">
+        <label id="closeBtn-icon" for="menu-closeBtn">
+            <span id="close-icon"></span>
+        </label> <br /><br />
+        <p><span class="rosso">C</span>erca nel sito...</p>
+        <div class="casellaCerca" id="cercaSidenav">
+            <select class="testoCerca" id="sideTestoCerca">
+                <option value="Cerca">Cerca...</option>
+                <option value="Il Burlamacco">Burlamacco</option>
+                <option value="Ondina">Ondina</option>
+                <option value="La Burlamacca">Burlamacca</option>
+                <option value="I carri">Carri</option>
+                <option value="Le maschere">Maschere</option>
+                <option value="I premi">Premi</option>
+            </select>
+            <a class="cercaBtn" id="sideCercaBtn">
+                <img src="image/search_icon.svg" alt="search" />
+            </a>
+        </div>
+        <div id="risultato"></div>
+    </nav>
+
+    <div class="date2021" id="corsi">
+        <h1>
+            <span class="aumenta"><span class="rosso">G</span>RANDI</span> CORSI <span class="rosso">M</span>ASCHERATI
+        </h1>
+        <h3 id="date">4 - 12 - 16 - 19 - 21 - 25 <span class="rosso">F</span>EBBRAIO <span class="aumenta"><span class="rosso">2</span>023</span>
+        </h3>
+    </div>
+    <mark id="show"><em>Scorri il mouse sul circuito!</em></mark>
+    <a href="#mappa">
+        <img src="image/down.svg" id="down" class="GoDown" title="Vai alla mappa!" alt="down" />
+    </a>
+
+    <div class="divCircuito">
+        <h4 id="muovi">
+            Il <span class="aumenta"><span class="rosso">C</span>IRCUITO</span> DEL <span class="rosso">C</span>ARNEVALE
+        </h4>
+        <mark id="show2"><em>Scorri il mouse sul circuito!</em></mark>
+        <div id="divBurlamacco">
+            <img src="image/burlamacco.gif" id="Burlamacco" alt="Il Burlamacco" />
+            <div id="overlayBurlamacco">
+                <p>Lungo il percorso, di lunghezza quasi 2km e mezzo, sfilano ogni anno 14 carri e 18 maschere. Al
+                    centro del percorso vi è il pennone con la bandiera ufficiale, a simboleggiare che, per un mese, il
+                    Carnevale fa da padrone nella città...</p>
+            </div>
+        </div>
+
+        <img src="image/cartina_circuito.jpg" id="mappa" usemap="#image-map" alt="Circuito Carnevale">
+        <map name="image-map">
+            <area target="" alt="Entrata - Viale Margherita" title="Entrata - Viale Margherita"
+                href="https://goo.gl/maps/abJzQ4dtSQF73PfN7" coords="182,844,86" shape="circle">
+            <area target="" alt="Entrata - Piazza Mazzini" title="Entrata - Piazza Mazzini"
+                href="https://goo.gl/maps/LPMLmWGRGWxoawEo6" coords="671,695,81" shape="circle">
+            <area target="" alt="Entrata - Via Vespucci" title="Entrata - Via Vespucci"
+                href="https://goo.gl/maps/p8eCeNNtcpf2hSDS7" coords="616,505,76" shape="circle">
+            <area target="" alt="Entrata - Via Saffi" title="Entrata - Via Saffi"
+                href="https://goo.gl/maps/wMMZjSr8tfWqNft48" coords="883,252,66" shape="circle">
+            <area target="" alt="Entrata - Viale Marconi" title="Entrata - Viale Marconi"
+                href="https://goo.gl/maps/VTy4ydjY3ePAaJni8" coords="973,87,78" shape="circle">
+            <area target="" alt="Stazione di Viareggio" title="Stazione di Viareggio"
+                href="https://goo.gl/maps/pTALJi8WW71gJCdD9" coords="784,868,839,899,930,805,879,775" shape="poly">
+        </map>
+    </div>
+
+    <div id="testoRioni">
+        <h1>
+            I <span class="aumenta"><span class="rosso">R</span>IONI</span>
+        </h1>
+        <p>
+            <mark>E se i corsi mascherati possono sembrare poco, a Viareggio si tengono anche le feste rionali,
+                organizzate da comitati privati che solitamente di sera dopo i Corsi di Carnevale allestiscono spazi per
+                le vie della città con musica, cibo e tanto, tanto divertimento!<br>
+                Anche i Rioni hanno una storia e un forte senso di appartenenza e tradizione, tanto che alcune feste
+                rionali hanno storie che durano da più di 50 anni...</mark>
+        </p>
+    </div>
+
+    <div class="divRioni">
+        <div id="left">
+            <img src="image/darsena.png" id="darsena" alt="Il rione Darsena" />
+            <div id="overlayDarsena">
+                <div id="testoOverlayDarsena">
+                    <p><span class="rosso">V</span>isita il <span class="rosso">s</span>ito!<br>-<br>
+                        <a href="https://carnevaldarsena.it/" target="_blank"><span class="rosso">R</span>ione <span
+                                class="rosso">D</span>arsena</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="right">
+            <img src="image/marcopolo.png" alt="Il rione Marco Polo" id="Marcopolo" class="image">
+            <div id="overlayMarco">
+                <div id="testoOverlayMarco">
+                    <p><span class="rosso">V</span>isita il profilo <span class="rosso">F</span>acebook!<br>-<br>
+                        <a href="https://www.facebook.com/pages/category/Event/RIONE-MARCO-POLO-105797484128914/"
+                            target="_blank"><span class="rosso">R</span>ione Marco <span class="rosso">P</span>olo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="about.html">
+            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+        </a>
+    </footer>
+
+    <a id="buttonTop">
+        <img src="image/up_icon.svg" title="Vai all'inizio" alt="up" />
+    </a>
+</body>
+
+</html>
