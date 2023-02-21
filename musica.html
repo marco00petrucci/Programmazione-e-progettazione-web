@@ -31,14 +31,16 @@
             display: none
         }
         
-        iframe,
-        .burlamaccaLeft,
-        .burlamaccaRight {
+        iframe {
             width: 150px;
             height: 100px;
             float: right;
             border: 5px solid rgba(255, 255, 255, .5);
-            animation: 1s ease-out 0s slideInFromLeft;
+            animation: 1s ease-out slideInFromLeft;
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease;
         }
         
         iframe:hover {
@@ -47,10 +49,6 @@
             -ms-transform: scale(1.1);
             -o-transform: scale(1.1);
             transform: scale(1.1);
-            -webkit-transition: all 200ms ease;
-            -moz-transition: all 200ms ease;
-            -o-transition: all 200ms ease;
-            transition: all 500ms ease;
         }
         
         .iframeRight {
@@ -188,15 +186,13 @@
             main h1 {
                 font-size: 2.1em;
             }
-            .iframeRight,
-            .burlamaccaRight {
+            .iframeRight {
                 float: left;
                 width: 260px;
                 height: 150px;
                 margin: 0 0 0 8%;
             }
-            .iframeLeft,
-            .burlamaccaLeft {
+            .iframeLeft{
                 float: right;
                 width: 260px;
                 height: 150px;
@@ -243,8 +239,7 @@
                 height: 250px;
                 margin: 0 0 0 8%;
             }
-            .iframeLeft,
-            .burlamaccaLeft {
+            .iframeLeft {
                 width: 360px;
                 height: 250px;
                 margin: 5% 8% 0 0;
@@ -289,7 +284,7 @@
             <li title="Pagina iniziale">
                 <a href="index.html"><span class="aumenta">H</span>ome</a>
             </li>
-            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+            <li title="Burlamacco ti aspetta al Carnevale 2024!">
                 <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
             </li>
             <li title="Una storia iniziata più di 150 anni fa...">
@@ -363,7 +358,7 @@
         <div class="sezioni">
             <iframe src="https://www.youtube.com/embed/I775crddqjY" id="rinasci" class="iframeLeft" allowfullscreen></iframe>
 
-            <h2 class="left">ANNI '40/'50</h2> <br />
+            <h2 class="left">ANNI '40'50</h2> <br />
             <h3 class="left">LA <span class="rosso">R</span>INASCITA <span class="rosso">P</span>OSTBELLICA</h3>
             <p class="left">
                 <mark>A Viareggio il sentimento di rinascita dopo la guerra era molto forte tanto che, si racconta, si lanciavano coriandoli sulle buche lasciate dalle bombe pur di far Carnevale: "Risorgi ancor più bella", di Gino Guidi è forse una delle musiche più emozionanti della storia della musica viareggina...</mark>
@@ -395,7 +390,7 @@
 
     <footer>
         <a href="about.html">
-            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+            <p>All rights reserved | © 2023 | Created by Marco Petrucci</p>
         </a>
     </footer>
 

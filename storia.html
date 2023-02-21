@@ -34,7 +34,12 @@
         main img {
             float: right;
             border: 5px solid rgba(255, 255, 255, .5);
-            animation: 1s ease-out 0s slideInFromLeft;
+            transform: scale(1);
+            animation: 1s ease-out slideInFromLeft;
+            -webkit-transition: .5s ease;
+            -moz-transition: .5s ease;
+            -o-transition: .5s ease;
+            transition: .5s ease;
         }
         
         main img:hover {
@@ -43,10 +48,6 @@
             -ms-transform: scale(1.1);
             -o-transform: scale(1.1);
             transform: scale(1.1);
-            -webkit-transition: all 200ms ease;
-            -moz-transition: all 200ms ease;
-            -o-transition: all 200ms ease;
-            transition: all 500ms ease;
         }
         
         .photoRight {
@@ -358,19 +359,13 @@
         function hover() {
             img.style.display = "none";
             img2.style.display = "initial";
-            img.style.transform = "scale(1.1)";
-            img2.style.transform = "scale(1.1)";
-            img.style.animation = "none";
             img2.style.animation = "none";
         }
 
         function hoverLeave() {
             img.style.display = "initial";
             img2.style.display = "none";
-            img.style.transform = "scale(1.0)";
-            img2.style.transform = "scale(1.0)";
             img.style.animation = "none";
-            img2.style.animation = "none";
         }
 
         window.onload = gestoreLoad;
@@ -398,7 +393,7 @@
             <li title="Pagina iniziale">
                 <a href="index.html"><span class="aumenta">H</span>ome</a>
             </li>
-            <li title="Burlamacco ti aspetta al Carnevale 2021!">
+            <li title="Burlamacco ti aspetta al Carnevale 2024!">
                 <a href="eventi.html">Gli <span class="aumenta">e</span>venti</a>
             </li>
             <li title="Una storia iniziata più di 150 anni fa...">
@@ -517,7 +512,7 @@
 
     <footer>
         <a href="about.html">
-            <p>All rights reserved | © 2022 | Created by Marco Petrucci</p>
+            <p>All rights reserved | © 2023 | Created by Marco Petrucci</p>
         </a>
     </footer>
 
