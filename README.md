@@ -3,5 +3,5 @@ Progetto per l'esame di Programmazione e progettazione web, vincitore degli Web 
 
 Realizzazione di un piccolo sito web in HTML5, CSS3 e JavaScript puro.
 
-## Sito aggiornato al 2022:
+## Sito aggiornato al 2023:
 https://marco00petrucci.github.io/Programmazione-e-progettazione-web/index.html
