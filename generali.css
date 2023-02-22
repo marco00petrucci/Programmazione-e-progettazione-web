@@ -258,7 +258,7 @@ ul#menu li a:hover>.aumenta {
 }
 
 select option:first-child {
-    /* display: none; */
+    display: none;
 }
 
 select option {
