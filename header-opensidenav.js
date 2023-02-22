@@ -29,17 +29,14 @@ function gestoreScroll() {
 
 //Sidenav Search
 function gestoreOpenCloseNav() {
-    var nodocercaHeader = document.getElementById("cercaHeader");
-    nodocercaHeader.onclick = openNav;
-    var nodocloseBtn = document.getElementById("closeBtn-icon");
-    nodocloseBtn.onclick = closeNav;
+    document.getElementById("cercaHeader").onclick = openNav;
+    document.getElementById("closeBtn-icon").onclick = closeNav;
 }
 
-var nodoTestoCerca, nodoCercaBtn, nodoRisultato, buttonTop;
+var nodoTestoCerca, nodoCercaBtn, nodoRisultato;
 
 function gestoreLoadCercaTop() {
-    buttonTop = document.getElementById("buttonTop");
-    buttonTop.onclick = topFunction;
+    document.getElementById("buttonTop").onclick = topFunction;
     nodoTestoCerca = document.getElementById("sideTestoCerca");
     nodoCercaBtn = document.getElementById("sideCercaBtn");
     nodoRisultato = document.getElementById("risultato");

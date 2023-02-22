@@ -8,13 +8,32 @@
     <title>Home - Carnevale di Viareggio</title>
     <style>
         @import url("generali.css");
+
+        @keyframes slider-animation {
+            0% {
+                opacity: .8;
+            }
+
+            10% {
+                opacity: .5;
+            }
+
+            75% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: .8;
+            }
+        }
+
         body {
             width: 100%;
             background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url("image/burlamacca_sul_pennonehtml.jpg") no-repeat center;
             background-size: cover;
             background-attachment: fixed;
         }
-        
+
         #IndexHeader {
             width: 100%;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("image/burlamacca_sul_pennone.jpg") no-repeat right;
@@ -28,7 +47,7 @@
             padding: 1%;
             z-index: 998;
         }
-        
+
         #gif {
             width: 4.5%;
             margin: 0 2% 0 0;
@@ -37,11 +56,11 @@
             transition: 0.8s;
             display: none;
         }
-        
+
         #cercaIndexHeader {
             display: none
         }
-        
+
         #IndexTitolo,
         #IndexTitolo2 {
             font-family: "Retroica";
@@ -49,7 +68,7 @@
             text-align: right;
             transition: 1s;
         }
-        
+
         #IndexTitolo {
             display: none;
             position: fixed;
@@ -58,7 +77,7 @@
             margin: 0;
             color: rgba(255, 255, 255, .9);
         }
-        
+
         #down {
             display: none;
             width: 70px;
@@ -66,7 +85,7 @@
             bottom: 5%;
             right: 20%;
         }
-        
+
         #IndexTitolo2 {
             position: relative;
             margin: 120% 0 0;
@@ -80,7 +99,7 @@
             -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             z-index: 2;
         }
-        
+
         .scacchiRedWhite {
             position: relative;
             background: rgba(213, 0, 3, 1.00);
@@ -90,14 +109,14 @@
             -moz-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
             -webkit-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
         }
-        
+
         #contenitoreFoto {
             position: relative;
             left: 0;
             right: 0;
             width: 55%;
         }
-        
+
         #left {
             position: absolute;
             top: 0;
@@ -106,12 +125,15 @@
             height: 100%;
             cursor: url("image/curprev.cur"), auto;
         }
-        
+
         #foto {
             width: 100%;
-            display: block
+            display: block;
+            animation: slider-animation;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
         }
-        
+
         #right {
             position: absolute;
             top: 0;
@@ -121,7 +143,7 @@
             height: 100%;
             cursor: url("image/curavanti.cur"), auto;
         }
-        
+
         .SlideButtons {
             width: 40px;
             cursor: pointer;
@@ -129,23 +151,23 @@
             bottom: 7%;
             z-index: 99;
         }
-        
+
         #indietro {
             left: 1%;
         }
-        
+
         #avanti {
             left: 48%;
         }
-        
+
         #startStop {
             left: 25%;
         }
-        
+
         #startStop:hover {
             filter: invert(100%)
         }
-        
+
         .scacchiRedWhite2 {
             position: relative;
             margin-top: -20%;
@@ -158,125 +180,140 @@
             -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             text-align: right;
         }
-        
+
         .scacchiRedWhite2 h4 {
             font-family: 'Retroica';
             color: #fff;
             font-size: 1em
         }
-        
+
         .scacchiRedWhite2 p {
             font-family: 'Berlin Sans';
             color: #fff;
             line-height: 1.3;
             font-size: 0.7em
         }
-        
+
         .scacchiRedWhite2 em:last-child {
             font-size: 0.7em
         }
-        
+
         @media screen and (min-width:360px) {
             #IndexTitolo2 {
                 margin-top: 85%;
                 font-size: 1.5em;
             }
         }
-        
+
         @media screen and (min-width:480px) {
             #IndexTitolo2 {
                 margin-top: 60%;
                 font-size: 2.3em
             }
+
             #delSpace {
                 display: none
             }
         }
-        
+
         @media screen and (min-width:600px) {
             #IndexTitolo2 {
                 margin-top: 48%;
                 font-size: 2.6em
             }
         }
-        
+
         @media screen and (min-width:700px) {
             #IndexTitolo2 {
                 margin-top: 40%;
                 font-size: 3.1em
             }
+
             .del {
                 display: none
             }
+
             .scacchiRedWhite2 em:last-child {
                 font-size: 0.8em
             }
         }
-        
+
         @media screen and (min-width:800px) {
             #IndexHeader {
                 background: transparent;
                 box-shadow: none
             }
+
             #IndexHeader ul#menu {
                 display: inline;
             }
+
             #titolo {
                 display: none
             }
+
             #gif {
                 display: initial;
                 width: 4%
             }
+
             #gif:hover {
                 width: 4.2%
             }
+
             #cercaIndexHeader {
                 display: inline-block
             }
+
             #IndexTitolo {
                 display: block
             }
+
             #IndexTitolo,
             #IndexTitolo2 {
                 font-size: 4em
             }
+
             #IndexTitolo2 {
                 margin-top: 60%
             }
+
             #down {
                 display: initial
             }
         }
-        
+
         @media screen and (min-width:900px) {
             .scacchiRedWhite2 p {
                 font-size: 0.9em
             }
         }
-        
+
         @media screen and (min-width:1150px) {
             #IndexTitolo,
             #IndexTitolo2 {
                 font-size: 5.5em;
             }
+
             #IndexTitolo2 {
                 margin: 43% 0 0;
             }
+
             .scacchiRedWhite2 h4 {
                 font-size: 1.5em
             }
+
             .scacchiRedWhite2 p {
                 font-size: 1em
             }
         }
-        
+
         @media screen and (min-width:1350px) {
             #IndexTitolo2 {
                 margin-top: 43%
             }
         }
-        
+
         @media screen and (min-width:1900px) {
             #down {
                 bottom: 12%
@@ -365,34 +402,11 @@
             "image/lebigre2020-2.jpg"
         ]
 
-        function gestoreClickAvanti() {
-            cambiaFoto(+1);
-        }
-
-        function gestoreClickIndietro() {
-            cambiaFoto(-1);
-        }
-
         function cambiaFoto(x) {
             indiceFoto += x;
-            if (indiceFoto == numeroFoto) {
-                indiceFoto = 0;
-            }
-            if (indiceFoto < 0) {
-                indiceFoto = numeroFoto - 1;
-            }
+            if (indiceFoto == numeroFoto) indiceFoto = 0;
+            if (indiceFoto < 0) indiceFoto = numeroFoto - 1;
             nodoFoto.setAttribute("src", galleria[indiceFoto]);
-        }
-
-        function gestoreClickStartStop() {
-            if (automatico) {
-                nodoStartStop.src = "image/play.svg";
-                automatico = false;
-            } else {
-                nodoStartStop.src = "image/stop.svg";
-                automatico = true;
-                cambiaFotoInAutomatico();
-            }
         }
 
         function cambiaFotoInAutomatico() {
@@ -402,35 +416,35 @@
             }
         }
 
-        var RITARDO = 4000;
-        var indiceFoto, numeroFoto, automatico, nodoAvanti, nodoIndietro, nodoRight, nodoLeft, nodoStartStop, nodoFoto, nodocercaIndexHeader, nodocloseBtn;
+        const RITARDO = 4000;
 
         function gestoreLoad() {
-            nodoAvanti = document.getElementById("avanti");
-            nodoIndietro = document.getElementById("indietro");
-            nodoAvanti.onclick = gestoreClickAvanti;
-            nodoIndietro.onclick = gestoreClickIndietro;
-            nodoRight = document.getElementById("right");
-            nodoLeft = document.getElementById("left");
-            nodoRight.onclick = gestoreClickAvanti;
-            nodoLeft.onclick = gestoreClickIndietro;
-            nodoStartStop = document.getElementById("startStop");
             nodoFoto = document.getElementById("foto");
-            nodoStartStop.onclick = gestoreClickStartStop;
-            numeroFoto = galleria.length;
-            automatico = true;
-            indiceFoto = 0;
+            document.getElementById("avanti").onclick = function () { cambiaFoto(+1) };
+            document.getElementById("indietro").onclick = function () { cambiaFoto(-1) };
+            document.getElementById("right").onclick = function () { cambiaFoto(+1) };
+            document.getElementById("left").onclick = function () { cambiaFoto(-1) };
+
+            nodoStartStop = document.getElementById("startStop");
+            nodoStartStop.onclick = function gestoreClickStartStop() {
+                if (automatico) {
+                    nodoStartStop.src = "image/play.svg";
+                    automatico = false;
+                } else {
+                    nodoStartStop.src = "image/stop.svg";
+                    automatico = true;
+                    cambiaFotoInAutomatico();
+                }
+            };
+            numeroFoto = galleria.length, automatico = true, indiceFoto = 0;
             cambiaFotoInAutomatico();
-            
-            nodocercaIndexHeader = document.getElementById("cercaIndexHeader");
-            nodocercaIndexHeader.onclick = openNav;
-            nodocloseBtn = document.getElementById("closeBtn-icon");
-            nodocloseBtn.onclick = closeNav;
-            buttonTop = document.getElementById("buttonTop");
-            buttonTop.onclick = topFunction;
-            nodoTestoCerca = document.getElementById("sideTestoCerca");
+
+            document.getElementById("buttonTop").onclick = topFunction;
+
+            // Sidenav Search
+            document.getElementById("cercaIndexHeader").onclick = openNav;
+            document.getElementById("closeBtn-icon").onclick = closeNav;
             nodoCercaBtn = document.getElementById("sideCercaBtn");
-            nodoRisultato = document.getElementById("risultato");
             nodoCercaBtn.onclick = gestoreCerca
         }
 
@@ -523,14 +537,16 @@
             <div id="left"></div>
             <div id="right"></div>
         </div>
-        <img src="image/stop.svg" class="SlideButtons" id="startStop" title="Avvia/disattiva scorrimento automatico" alt="Play & Stop" />
+        <img src="image/stop.svg" class="SlideButtons" id="startStop" title="Avvia/disattiva scorrimento automatico"
+            alt="Play & Stop" />
         <img src="image/next-icon.svg" class="SlideButtons" id="avanti" title="Immagine successiva" alt="next" />
     </div>
 
     <div class="scacchiRedWhite2">
         <h4>IN QUESTO <br id="delSpace"><span class="rosso">S</span>ITO...</h4>
-        <p>...potrai imparare come<br class="del"> vengono creati i carri più <br class="del">famosi del mondo<br> con accenni sulla storia <br class="del">pluricentenaria della festa viareggina<br> e sulla tradizione <br class="del">della musica carnevalesca...<br
-            /><br>
+        <p>...potrai imparare come<br class="del"> vengono creati i carri più <br class="del">famosi del mondo<br> con
+            accenni sulla storia <br class="del">pluricentenaria della festa viareggina<br> e sulla tradizione <br
+                class="del">della musica carnevalesca...<br /><br>
             <em>"donando per un mese l'illusion,<br class="del"> che tutto il mondo sia fatto di carton!..."</em><br>
             <em>- Adriano Barghetti</em>
         </p>

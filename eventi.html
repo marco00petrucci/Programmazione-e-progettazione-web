@@ -10,24 +10,21 @@
         @import url("generali.css");
 
         body {
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url("image/lebigre2020.jpg") no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0)), url("image/lebigre2020.jpg") no-repeat top;
             background-size: cover;
-            background-position: top;
             background-attachment: fixed;
         }
 
-        .date2021 {
+        .date_carnevale {
             margin-top: 14%;
-            left: 0;
-            right: 0;
         }
 
-        .date2021 h1 {
+        .date_carnevale h1 {
             font-size: 1.5em;
             margin: 1% 0% 2%;
         }
 
-        .date2021 h3 {
+        .date_carnevale h3 {
             font-size: 1em;
             margin: 1%;
         }
@@ -182,6 +179,14 @@
             margin: 3% 20% 0
         }
 
+        #testoRioni a {
+            color: #fff
+        }
+
+        #testoRioni a:hover {
+            background: rgba(213, 0, 3, 1.00)
+        }
+
         .divRioni {
             position: relative;
             margin-top: 50%;
@@ -229,70 +234,6 @@
         #left img {
             width: 30%;
             margin: 90% 60% 5% 0%;
-        }
-
-        #overlayDarsena {
-            position: absolute;
-            bottom: 0;
-            right: 30%;
-            left: 0;
-            margin: 90% 60% 5% 5%;
-            background-color: #000;
-            overflow: hidden;
-            width: 0;
-            height: 25.5%;
-            transition: .3s ease-out;
-            text-align: center
-        }
-
-        #left:hover #overlayDarsena {
-            width: 30%;
-            right: 0;
-            border-radius: 50%
-        }
-
-        #testoOverlayDarsena,
-        #testoOverlayMarco {
-            color: #fff;
-            font-size: .5em;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-        }
-
-        #overlayMarco {
-            position: absolute;
-            bottom: 0;
-            left: 30%;
-            right: 0;
-            margin: 90% 0% 5% 65%;
-            background-color: #000;
-            overflow: hidden;
-            width: 0;
-            height: 25.5%;
-            transition: .3s ease-out;
-            text-align: center
-        }
-
-        #right:hover #overlayMarco {
-            width: 30%;
-            left: 0;
-            border-radius: 50%
-        }
-
-        #testoOverlayMarco a,
-        #testoOverlayDarsena a {
-            color: #fff;
-            text-decoration: none
-        }
-
-        #testoOverlayMarco a:hover,
-        #testoOverlayDarsena a:hover {
-            text-decoration: underline
         }
 
         @media screen and (min-width:360px) {
@@ -350,11 +291,11 @@
         }
 
         @media screen and (min-width:800px) {
-            .date2021 h1 {
+            .date_carnevale h1 {
                 font-size: 2.5em;
             }
 
-            .date2021 h3 {
+            .date_carnevale h3 {
                 font-size: 1.6em
             }
 
@@ -419,12 +360,12 @@
 
         @media screen and (min-width:1024px) {
 
-            .date2021 h1,
+            .date_carnevale h1,
             #testoRioni h1 {
                 font-size: 3.4em;
             }
 
-            .date2021 h3 {
+            .date_carnevale h3 {
                 font-size: 2.3em
             }
 
@@ -466,11 +407,6 @@
             #overlayBurlamacco p {
                 margin: 20% 15%;
                 font-size: 1.2em
-            }
-
-            #testoOverlayDarsena,
-            #testoOverlayMarco {
-                font-size: 1em;
             }
 
             #testoRioni p {
@@ -524,7 +460,7 @@
                 document.body.style.backgroundAttachment = "fixed";
             }
             if ((window.matchMedia("(min-width: 800px)").matches) && (document.documentElement.scrollTop > 500)) {
-                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/rione.jpg') no-repeat";
+                document.body.style.background = "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('image/rione.jpg') no-repeat";
                 document.body.style.backgroundAttachment = "fixed";
                 document.body.style.backgroundPosition = "50% 30%";
                 document.body.style.backgroundSize = "cover";
@@ -532,72 +468,42 @@
             scrollFunction();
         }
 
-        //Mostra e nascondi testo all'hover
-        var titolo, muovi, scorri, scorri2;
-
-        function hover() {
-            scorri.style.display = "initial";
-            scorri2.style.display = "initial";
-        }
-
-        function notHover() {
-            scorri.style.display = "none";
-            scorri2.style.display = "none";
-        }
-
-        //Gestione della mappa delle entrate
-        function hoverImg() {
-            mappa.style.transform = "scale(1.1)";
-        }
-
-        function hoverImgLeave() {
-            mappa.style.transform = "scale(1.1)";
-        }
-
-        //Sidenav Search
-        function gestoreOpenCloseNav() {
-            var nodocercaHeader = document.getElementById("cercaHeader");
-            nodocercaHeader.onclick = openNav;
-            var nodocloseBtn = document.getElementById("closeBtn-icon");
-            nodocloseBtn.onclick = closeNav;
-        }
-
-        const LARGHEZZA_FOTO = 1285;
-        var nodoMappa, nodiArea, coordinateAree, dimensioneFoto, mappa, nodoTestoCerca, nodoCercaBtn, nodoRisultato, buttonTop;
-
         function gestoreLoad() {
-            titolo = document.getElementById("corsi");
+            // Mostra e nascondi testo all'hover
+            titolo = document.getElementsByClassName("date_carnevale")[0];
             muovi = document.getElementById("muovi");
             scorri = document.getElementById("show");
             scorri2 = document.getElementById("show2");
-            titolo.onmouseover = hover;
-            titolo.onmouseout = notHover;
-            muovi.onmouseover = hover;
-            muovi.onmouseout = notHover;
+            titolo.onmouseover = function () { scorri.style.display = "initial" };
+            titolo.onmouseout = function () { scorri.style.display = "none" };
+            muovi.onmouseover = function () { scorri2.style.display = "initial" };
+            muovi.onmouseout = function () { scorri2.style.display = "none" };
+
+            // Gestione della mappa delle entrate
             mappa = document.getElementById("mappa");
-            mappa.onmouseover = hoverImg;
-            mappa.onmouseout = hoverImgLeave;
+            mappa.onmouseover = function () { mappa.style.transform = "scale(1.1)" };
+            mappa.onmouseout = function () { mappa.style.transform = "scale(1.1)" };
             nodiArea = document.getElementsByTagName("area");
-            nodoMappa = document.getElementById("mappa");
             coordinateAree = [];
             for (var i = 0; i < nodiArea.length; i++) {
                 var nodoArea = nodiArea[i];
                 coordinateAree[i] = nodoArea.coords.split(',');
             }
-            dimensioneFoto = LARGHEZZA_FOTO;
+            dimensioneFoto = 1285;
             window.onresize = gestoreResize;
             gestoreResize();
-            buttonTop = document.getElementById("buttonTop");
-            buttonTop.onclick = topFunction;
-            nodoTestoCerca = document.getElementById("sideTestoCerca");
+
+            document.getElementById("buttonTop").onclick = topFunction;
+            
+            // Sidenav Search
+            document.getElementById("cercaHeader").onclick = openNav;
+            document.getElementById("closeBtn-icon").onclick = closeNav;
             nodoCercaBtn = document.getElementById("sideCercaBtn");
-            nodoRisultato = document.getElementById("risultato");
             nodoCercaBtn.onclick = gestoreCerca;
-            gestoreOpenCloseNav();
         }
 
         function gestoreResize() {
-            var attualeDimensioneFoto = nodoMappa.width;
+            var attualeDimensioneFoto = mappa.width;
             var ratio = attualeDimensioneFoto / dimensioneFoto;
             for (var i = 0; i < nodiArea.length; i++) {
                 for (var j = 0; j < coordinateAree[i].length; j++) {
@@ -680,11 +586,12 @@
         <div id="risultato"></div>
     </nav>
 
-    <div class="date2021" id="corsi">
+    <div class="date_carnevale">
         <h1>
             <span class="aumenta"><span class="rosso">G</span>RANDI</span> CORSI <span class="rosso">M</span>ASCHERATI
         </h1>
-        <h3 id="date">3 - 8 - 11 - 13 - 18 - 24 <span class="rosso">F</span>EBBRAIO <span class="aumenta"><span class="rosso">2</span>024</span>
+        <h3 id="date">3 - 8 - 11 - 13 - 18 - 24 <span class="rosso">F</span>EBBRAIO <span class="aumenta"><span
+                    class="rosso">2</span>024</span>
         </h3>
     </div>
     <mark id="show"><em>Scorri il mouse sul circuito!</em></mark>
@@ -729,36 +636,26 @@
         </h1>
         <p>
             <mark>E se i corsi mascherati possono sembrare poco, a Viareggio si tengono anche le feste rionali,
-                organizzate da comitati privati che solitamente di sera dopo i Corsi di Carnevale allestiscono spazi per
+                organizzate da comitati privati che solitamente di sera dopo i corsi di Carnevale allestiscono spazi per
                 le vie della città con musica, cibo e tanto, tanto divertimento!<br>
-                Anche i Rioni hanno una storia e un forte senso di appartenenza e tradizione, tanto che alcune feste
-                rionali hanno storie che durano da più di 50 anni...</mark>
+                Anche i rioni hanno una storia e un forte senso di appartenenza e tradizione, tanto che le due feste
+                rionali più famose (<a href="https://carnevaldarsena.it/" target="_blank">Carneval Darsena</a> e <a
+                    href="https://www.facebook.com/profile.php?id=100063778081746" target="_blank">Rione Marco Polo</a>)
+                hanno storie che durano da più di 50 anni...</mark>
         </p>
     </div>
 
     <div class="divRioni">
         <div id="left">
-            <img src="image/darsena.png" id="darsena" alt="Il rione Darsena" />
-            <div id="overlayDarsena">
-                <div id="testoOverlayDarsena">
-                    <p><span class="rosso">V</span>isita il <span class="rosso">s</span>ito!<br>-<br>
-                        <a href="https://carnevaldarsena.it/" target="_blank"><span class="rosso">R</span>ione <span
-                                class="rosso">D</span>arsena</a>
-                    </p>
-                </div>
-            </div>
+            <a href="https://carnevaldarsena.it/" target="_blank">
+                <img src="image/darsena.png" id="darsena" alt="Il rione Darsena" />
+            </a>
         </div>
 
         <div id="right">
-            <img src="image/marcopolo.png" alt="Il rione Marco Polo" id="Marcopolo" class="image">
-            <div id="overlayMarco">
-                <div id="testoOverlayMarco">
-                    <p><span class="rosso">V</span>isita il profilo <span class="rosso">F</span>acebook!<br>-<br>
-                        <a href="https://www.facebook.com/pages/category/Event/RIONE-MARCO-POLO-105797484128914/"
-                            target="_blank"><span class="rosso">R</span>ione Marco <span class="rosso">P</span>olo</a>
-                    </p>
-                </div>
-            </div>
+            <a href="https://www.facebook.com/profile.php?id=100063778081746" target="_blank">
+                <img src="image/marcopolo.png" alt="Il rione Marco Polo" id="Marcopolo" class="image">
+            </a>
         </div>
     </div>
 
