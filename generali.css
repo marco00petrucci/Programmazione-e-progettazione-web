@@ -1,6 +1,9 @@
 @font-face {
     font-family: "Retroica";
-    src: url(retroica.ttf);
+    src: url("retroica.ttf");
+}
+
+@font-face {
     font-family: 'Berlin Sans';
     src: url(berlin_sans.ttf);
 }

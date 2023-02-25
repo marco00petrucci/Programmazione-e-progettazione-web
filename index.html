@@ -9,24 +9,6 @@
     <style>
         @import url("generali.css");
 
-        @keyframes slider-animation {
-            0% {
-                opacity: .8;
-            }
-
-            10% {
-                opacity: .5;
-            }
-
-            75% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: .8;
-            }
-        }
-
         body {
             width: 100%;
             background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url("image/burlamacca_sul_pennonehtml.jpg") no-repeat center;
@@ -45,7 +27,7 @@
             margin: 0;
             top: 0;
             padding: 1%;
-            z-index: 998;
+            z-index: 998
         }
 
         #gif {
@@ -53,8 +35,8 @@
             margin: 0 2% 0 0;
             float: left;
             opacity: 0.9;
-            transition: 0.8s;
-            display: none;
+            transition: .8s;
+            display: none
         }
 
         #cercaIndexHeader {
@@ -107,7 +89,7 @@
             -o-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
             -ms-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
             -moz-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
-            -webkit-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0);
+            -webkit-clip-path: polygon(50% 0, 85% 100%, 0 100%, 0 0)
         }
 
         #contenitoreFoto {
@@ -115,6 +97,7 @@
             left: 0;
             right: 0;
             width: 55%;
+            background-color: #fff;
         }
 
         #left {
@@ -129,9 +112,7 @@
         #foto {
             width: 100%;
             display: block;
-            animation: slider-animation;
-            animation-duration: 4s;
-            animation-iteration-count: infinite;
+            transition: .5s;
         }
 
         #right {
@@ -290,6 +271,7 @@
         }
 
         @media screen and (min-width:1150px) {
+
             #IndexTitolo,
             #IndexTitolo2 {
                 font-size: 5.5em;
@@ -403,16 +385,18 @@
         ]
 
         function cambiaFoto(x) {
-            indiceFoto += x;
-            if (indiceFoto == numeroFoto) indiceFoto = 0;
-            if (indiceFoto < 0) indiceFoto = numeroFoto - 1;
+            nodoFoto.style.opacity = .5;
+            if (indiceFoto == galleria.length) indiceFoto = 0;
+            if (indiceFoto < 0) indiceFoto = galleria.length - 1;
             nodoFoto.setAttribute("src", galleria[indiceFoto]);
+            indiceFoto += x;
+            setTimeout("nodoFoto.style.opacity = 1", 500);
         }
 
         function cambiaFotoInAutomatico() {
             if (automatico) {
                 cambiaFoto(+1);
-                setTimeout(cambiaFotoInAutomatico, RITARDO);
+                setTimeout(cambiaFotoInAutomatico, RITARDO)
             }
         }
 
@@ -426,7 +410,7 @@
             document.getElementById("left").onclick = function () { cambiaFoto(-1) };
 
             nodoStartStop = document.getElementById("startStop");
-            nodoStartStop.onclick = function gestoreClickStartStop() {
+            nodoStartStop.onclick = function () {
                 if (automatico) {
                     nodoStartStop.src = "image/play.svg";
                     automatico = false;
@@ -436,7 +420,7 @@
                     cambiaFotoInAutomatico();
                 }
             };
-            numeroFoto = galleria.length, automatico = true, indiceFoto = 0;
+            automatico = true, indiceFoto = 0;
             cambiaFotoInAutomatico();
 
             document.getElementById("buttonTop").onclick = topFunction;
@@ -444,8 +428,7 @@
             // Sidenav Search
             document.getElementById("cercaIndexHeader").onclick = openNav;
             document.getElementById("closeBtn-icon").onclick = closeNav;
-            nodoCercaBtn = document.getElementById("sideCercaBtn");
-            nodoCercaBtn.onclick = gestoreCerca
+            document.getElementById("sideCercaBtn").onclick = gestoreCerca
         }
 
         window.onload = gestoreLoad;
