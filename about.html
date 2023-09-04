@@ -7,56 +7,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About - Carnevale di Viareggio</title>
     <style>
-        @import url("generali.css");
+        @import url("style.css");
+
         body {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("image/galli.jpg") no-repeat center;
             background-size: cover;
             background-attachment: fixed;
             opacity: 90%;
         }
-        
+
         main {
             margin-top: 13%;
         }
-        
+
         main h2 {
             font-family: 'Retroica';
             text-align: center;
             color: #fff;
         }
-        
+
         main p,
         main a {
             font-family: 'Berlin Sans';
             text-align: center;
             color: #fff;
         }
-        
+
+        main a:hover {
+            color: rgba(255, 0, 0, .7)
+        }
+
         .About {
             margin: 2% 5%;
         }
-        
+
         .About h2 {
             margin: 0;
             padding: 10% 15% 1%;
         }
-        
+
         .About p {
             margin: 0;
             padding: 2% 10% 10%;
             font-size: 1em;
             line-height: 1.3;
         }
-        
+
         .About a {
             text-decoration: none;
         }
-        
+
         #aboutMe {
             background-color: rgba(255, 255, 255, .3);
             border-radius: 100px;
         }
-        
+
         #contatti {
             background-color: rgba(190, 0, 0, 0.5);
             width: 90%;
@@ -64,49 +69,52 @@
             text-align: center;
             position: relative;
         }
-        
+
         #contatti h2 {
             margin-top: 15%
         }
-        
+
         #contatti p {
             margin-top: 5%;
             font-size: 0.8em;
         }
-        
+
         #contatti a:hover {
             text-decoration: underline;
         }
-        
+
         #sito {
             background-color: rgba(255, 255, 255, .3);
             border-radius: 100px;
         }
-        
+
         .icons {
             width: 10%;
             vertical-align: middle;
             padding: 0% 1%;
         }
-        
+
         @media screen and (min-width:500px) {
             .icons {
                 width: 5%;
             }
         }
-        
+
         @media screen and (min-width:800px) {
             body {
                 background-position: 50% 55%
             }
+
             #aboutMe {
                 float: left;
                 width: 40%;
             }
+
             #sito {
                 float: right;
                 width: 40%;
             }
+
             #contatti {
                 float: left;
                 width: 310px;
@@ -114,9 +122,11 @@
                 margin-top: -5%;
                 margin-left: 39%
             }
+
             #contatti p {
                 font-size: 0.9em;
             }
+
             .icons {
                 width: 10%;
             }
@@ -196,14 +206,22 @@
     <main>
         <div class="About" id="aboutMe">
             <h2><span class="rosso">A</span>BOUT <span class="rosso">M</span>E</h2>
-            <p>Mi chiamo Marco Petrucci, ho 22 anni e abito a Viareggio.<br> Fin da bambino il Carnevale viareggino è la mia passione e, unendo questa mia passione e quella per l'informatica e la grafica, è nato questo sito, realizzato per il corso di Programmazione
+            <p>Mi chiamo Marco Petrucci, ho 22 anni e abito a Viareggio.<br> Fin da bambino il Carnevale viareggino è la
+                mia passione e, unendo questa mia passione e quella per l'informatica e la grafica, è nato questo sito,
+                realizzato per il corso di Programmazione
                 e Progettazione Web per l'anno accademico 2021/22.</p>
         </div>
 
         <div class="About" id="sito">
             <h2>IL <span class="rosso">S</span>ITO</h2>
-            <p>Questo sito è stato realizzato per il corso di Programmazione e Progettazione Web (CdL di Informatica Umanistica dell'Università degli Studi di Pisa) a.a. 2020/21.<br> Il materiale utilizzato appartiene ai proprietari. Le illustrazioni sono
-                state realizzate con Adobe Photoshop© e Adobe Illustrator©.<br /> Tutte le pagine HTML e CSS del sito sono state validate secondo gli standard W3C.</p>
+            <p><a href="https://iu.di.unipi.it/ppw/PPW-2020/PetrucciMarco/sito/"
+                    style="text-decoration: underline">Questo sito</a> è stato realizzato per il corso di Programmazione
+                e Progettazione Web (CdL di Informatica
+                Umanistica dell'Università degli Studi di Pisa) a.a. 2020/21.<br> Il materiale utilizzato appartiene ai
+                proprietari. Le illustrazioni sono
+                state realizzate con Adobe Photoshop© e Adobe Illustrator©.<br /> Tutte le pagine HTML e CSS del sito
+                sono state validate secondo gli standard W3C.
+            </p>
         </div>
 
         <div class="About" id="contatti">

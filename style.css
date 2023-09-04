@@ -18,6 +18,16 @@
     }
 }
 
+@keyframes freccetta {
+    0% {
+        transform: translateY(5%);
+    }
+
+    100% {
+        transform: translateY(6%);
+    }
+}
+
 body {
     margin: 0;
 }
@@ -593,7 +603,8 @@ footer p:hover {
 
     .casellaCerca:hover {
         padding: 4px;
-        background-color: rgba(255, 255, 255, .75)
+        background-color: rgba(255, 255, 255, .75);
+        background-size: contain;
     }
 
     #headerTestoCerca {

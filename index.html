@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Carnevale di Viareggio</title>
+    <title>Carnevale di Viareggio - Home</title>
     <style>
-        @import url("generali.css");
+        @import url("style.css");
 
         body {
             width: 100%;
             background: linear-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url("image/burlamacca_sul_pennonehtml.jpg") no-repeat center;
             background-size: cover;
-            background-attachment: fixed;
+            background-attachment: fixed
         }
 
         #IndexHeader {
@@ -48,7 +48,7 @@
             font-family: "Retroica";
             font-size: 1.5em;
             text-align: right;
-            transition: 1s;
+            transition: 1s
         }
 
         #IndexTitolo {
@@ -57,7 +57,7 @@
             top: 60%;
             right: 2%;
             margin: 0;
-            color: rgba(255, 255, 255, .9);
+            color: rgba(255, 255, 255, .9)
         }
 
         #down {
@@ -66,6 +66,11 @@
             position: fixed;
             bottom: 5%;
             right: 20%;
+            animation: 1s ease-out freccetta;
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 500ms ease
         }
 
         #IndexTitolo2 {
@@ -79,7 +84,7 @@
             -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-            z-index: 2;
+            z-index: 2
         }
 
         .scacchiRedWhite {
@@ -97,7 +102,7 @@
             left: 0;
             right: 0;
             width: 55%;
-            background-color: #fff;
+            background-color: #fff
         }
 
         #left {
@@ -106,13 +111,13 @@
             left: 0;
             width: 50%;
             height: 100%;
-            cursor: url("image/curprev.cur"), auto;
+            cursor: url("image/curprev.cur"), auto
         }
 
         #foto {
             width: 100%;
             display: block;
-            transition: .5s;
+            transition: .5s
         }
 
         #right {
@@ -122,7 +127,7 @@
             left: 50%;
             width: 50%;
             height: 100%;
-            cursor: url("image/curavanti.cur"), auto;
+            cursor: url("image/curavanti.cur"), auto
         }
 
         .SlideButtons {
@@ -130,19 +135,19 @@
             cursor: pointer;
             position: absolute;
             bottom: 7%;
-            z-index: 99;
+            z-index: 99
         }
 
         #indietro {
-            left: 1%;
+            left: 1%
         }
 
         #avanti {
-            left: 48%;
+            left: 48%
         }
 
         #startStop {
-            left: 25%;
+            left: 25%
         }
 
         #startStop:hover {
@@ -159,7 +164,7 @@
             -ms-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             -moz-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
             -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-            text-align: right;
+            text-align: right
         }
 
         .scacchiRedWhite2 h4 {
@@ -182,7 +187,7 @@
         @media screen and (min-width:360px) {
             #IndexTitolo2 {
                 margin-top: 85%;
-                font-size: 1.5em;
+                font-size: 1.5em
             }
         }
 
@@ -507,13 +512,15 @@
         <span class="rosso">C</span>ARNEVALE <br /> DI <span class="rosso">V</span>IAREGGIO
     </h1>
 
-    <img src="image/down.svg" id="down" class="GoDown" alt="Go down" />
+    <a href="#scrolldown">
+        <img src="image/down.svg" id="down" class="GoDown" alt="Go down" />
+    </a>
 
     <h1 id="IndexTitolo2">
         <span class="rosso">C</span>ARNEVALE <br> DI <span class="rosso">V</span>IAREGGIO
     </h1>
 
-    <div class="scacchiRedWhite">
+    <div class="scacchiRedWhite" id="scrolldown">
         <img src="image/prev-icon.svg" class="SlideButtons" id="indietro" title="Immagine precedente" alt="previous" />
         <div id="contenitoreFoto">
             <img id="foto" alt="Photos" src="#" />
